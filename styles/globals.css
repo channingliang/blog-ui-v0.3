@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Harmony Sans';
+  src: url('../public/fonts/HarmonySans_Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HarmonyOS Sans SC';
+  src: url('../public/fonts/HarmonySans_Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@layer utilities {
+  ::selection {
+    background-color: theme('backgroundColor.selection-light');
+  }
+  .dark ::selection {
+    background-color: theme('backgroundColor.selection-dark');
+  }
+}
+
+.sidebar-box {
+  @apply h-full rounded-lg border-2 flex items-center px-4;
+}
+
