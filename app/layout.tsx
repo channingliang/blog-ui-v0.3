@@ -42,7 +42,7 @@ export default async function RootLayout({children}: { children: React.ReactNode
 		<body className={harmony.className}>
 		<Providers themeProps={{attribute: "class", defaultTheme: "dark"}}>
 			<Navbar />
-			<main className="container mx-auto max-w-5xl pt-6 px-6 flex-grow">
+			<main className="container mx-auto max-w-5xl pt-4 px-4 flex-grow">
 				<div className="md:flex grid grid-cols-1 gap-4">
 					<div className="flex-1">
 						{children}
