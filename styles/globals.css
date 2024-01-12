@@ -29,11 +29,11 @@
   @apply h-full rounded-lg border-2 flex items-center px-4;
 }
 
-.page-title {
+.section-title {
   @apply text-2xl sm:text-3xl font-bold text-center mb-2;
 }
 
-.page-subtitle {
+.section-subtitle {
   @apply text-[0.8rem] text-center mb-4;
 }
 

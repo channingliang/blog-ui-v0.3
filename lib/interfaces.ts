@@ -12,6 +12,11 @@ interface BlogData {
     commentCount: number;
 }
 
+interface TagData {
+    tagId: number;
+    tagName: string;
+}
+
 interface PostsData {
     postId: number;
     title: string;
@@ -27,5 +32,17 @@ interface PostsPageData {
     size: number;
     current: number;
     pages: number;
+}
+
+interface PostData {
+    postId: number;
+    title: string;
+    subtitle: string;
+    content: string;
+    coverUrl: string;
+    createTime: string;
+    editTime: string;
+    viewCount: number;
+    tags: TagData[];
 }
 

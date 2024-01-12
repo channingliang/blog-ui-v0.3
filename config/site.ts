@@ -10,11 +10,11 @@ export const siteConfig = {
         },
 		{
 			label: "博文",
-			href: "/post",
+			href: "/posts",
 		},
         {
             label: "照片",
-            href: "/photos",
+            href: "/images",
         },
         {
             label: "留言板",

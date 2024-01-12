@@ -5,7 +5,7 @@ import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nex
 export default function App() {
 	return (
 		<>
-			<div className={"h-[2000px]"}></div>
+			<div className={"h-[2000px]"}>Home</div>
 		</>
 
 	);

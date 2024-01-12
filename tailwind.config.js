@@ -31,8 +31,11 @@ module.exports = {
             DEFAULT: '#fed504',
           },
           secondary: {
-            DEFAULT: '#e6e0d4',
+            // DEFAULT: '#f1f3f5',
           },
+          // background: {
+          //   DEFAULT: '#16181a',
+          // },
         }
       },
       light: {
@@ -40,10 +43,9 @@ module.exports = {
           primary: {
             DEFAULT: '#0653ff',
           },
-          divider: {
-            DEFAULT: '#555',
+          background: {
+            DEFAULT: '#f1f3f5',
           },
-
         },
       }
     }
