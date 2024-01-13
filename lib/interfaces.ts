@@ -14,7 +14,15 @@ interface BlogData {
 
 interface TagData {
     tagId: number;
-    tagName: string;
+    name: string;
+}
+
+interface PostsPageData {
+    records: PostsData[];
+    total: number;
+    size: number;
+    current: number;
+    pages: number;
 }
 
 interface PostsData {
@@ -24,14 +32,6 @@ interface PostsData {
     coverUrl: string;
     createTime: string;
     viewCount: number;
-}
-
-interface PostsPageData {
-    records: PostsData[];
-    total: number;
-    size: number;
-    current: number;
-    pages: number;
 }
 
 interface PostData {

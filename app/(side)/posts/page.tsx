@@ -8,8 +8,14 @@ export default async function PostsPage({ searchParams } : {
 	};
 }) {
 	const api = new ApiService();
-	async function getData(page?: number) {
-		const res = await api.get('http://localhost:10321/posts?page=' + page + '&size=2');
+	async function getData(page: number) {
+		const res = await api.get('http://localhost:10321/posts', {
+			params: {
+				page: page,
+				size: 2
+			},
+			next: { revalidate: 3600 }
+		});
 		return await res.json();
 	}
 

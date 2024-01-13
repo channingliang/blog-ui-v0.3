@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 
 interface InfoCardProps {
     IconComponent: FC;
-    mainText?: string; // mainText 是可选的
-    secondaryText: string;
+    mainText: string;
+    secondaryText?: string;
 }
 
 const InfoCard: FC<InfoCardProps> = ({ IconComponent, mainText, secondaryText }) => {

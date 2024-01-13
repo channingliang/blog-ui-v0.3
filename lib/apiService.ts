@@ -1,9 +1,12 @@
-// apiService.ts
+
 type HttpMethod = 'GET' | 'POST' | 'DELETE' | 'PATCH';
 
 interface ApiConfig {
     body?: BodyInit | null;
     params?: { [key: string]: string | number | boolean };
+    // headers?: { [key: string]: string };
+    cache?: RequestCache;
+    next?: NextFetchRequestConfig;
 }
 
 export class ApiService {
@@ -13,9 +16,18 @@ export class ApiService {
 
         headers.append('Content-Type', 'application/json');
 
-        const init: RequestInit = {
+        // // 设置自定义请求头部
+        // if (config?.headers) {
+        //     for (const key in config.headers) {
+        //         headers.append(key, config.headers[key]);
+        //     }
+        // }
+
+        let init: RequestInit = {
             method,
             headers,
+            cache: config?.cache,
+            next: config?.next,
         };
 
         // 处理body
@@ -30,23 +42,23 @@ export class ApiService {
         }
 
         // 发送请求
-        const response = await fetch(endpoint, init);
-        return response;
+        return await fetch(endpoint, init);
     }
 
-    public get(url: string, params?: { [key: string]: string | number | boolean }): Promise<Response> {
-        return this.request('GET', url, { params });
+    public get(url: string, config?: ApiConfig): Promise<Response> {
+        return this.request('GET', url, config);
     }
 
-    public post(url: string, body?: BodyInit, params?: { [key: string]: string | number | boolean }): Promise<Response> {
-        return this.request('POST', url, { body, params });
+    public post(url: string, config?: ApiConfig): Promise<Response> {
+        return this.request('POST', url, config);
     }
 
-    public delete(url: string, params?: { [key: string]: string | number | boolean }): Promise<Response> {
-        return this.request('DELETE', url, { params });
+    public delete(url: string, config?: ApiConfig): Promise<Response> {
+        return this.request('DELETE', url, config);
     }
 
-    public patch(url: string, body?: BodyInit, params?: { [key: string]: string | number | boolean }): Promise<Response> {
-        return this.request('PATCH', url, { body, params });
+    public patch(url: string, config?: ApiConfig): Promise<Response> {
+        return this.request('PATCH', url, config);
     }
 }
+

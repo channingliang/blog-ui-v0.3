@@ -25,6 +25,14 @@
   }
 }
 
+.text-glow-black {
+  text-shadow: 0 0 20px rgba(0, 0, 0);
+}
+
+.text-glow-white {
+  text-shadow: 0 0 20px rgba(255, 255, 255);
+}
+
 .sidebar-box {
   @apply h-full rounded-lg border-2 flex items-center px-4;
 }
@@ -37,3 +45,6 @@
   @apply text-[0.8rem] text-center mb-4;
 }
 
+.markdown-custom h2 {
+  @apply text-primary;
+}
