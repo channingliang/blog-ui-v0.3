@@ -5,6 +5,8 @@ import Image from "next/image";
 import cover from "@/public/assets/default-bg.jpg";
 import { Card, CardFooter, CardHeader } from "@nextui-org/react";
 import PostMarkdown from "@/components/post/post-markdown";
+import Toc from "@/components/post/toc";
+
 
 export default async function PostPage({ params }: { params: { id: string } }) {
 	const postId = params.id;
@@ -22,10 +24,10 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 	const postData: PostData = data.data;
 
 	return (
-		<section className="flex gap-4">
-			<div className="flex-1 border-2 rounded-xl">
+		<section className="md:flex grid grid-cols-1 gap-4">
+			<div className="flex-1">
 				<Card
-					className="h-[160px] sm:h-[300px] rounded-b-none"
+					className="h-[160px] sm:h-[300px] border-2"
 					shadow={"sm"}
 				>
 					<Image
@@ -37,17 +39,20 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 						fill
 					/>
 					<CardFooter
-						className="absolute bg-white/10 dark:bg-black/70 bottom-0 z-10
-						border-t-1 border-white/30 dark:border-default-100"
+						className="absolute bg-background/20 bottom-0 z-10
+						border-t-1 border-white/40 dark:border-default-100"
 					>
 						<div className="w-full py-2 flex items-center justify-center text-2xl text-white font-bold uppercase">
 							{postData.title}
 						</div>
 					</CardFooter>
 				</Card>
-				<PostMarkdown content={postData.content} />
+				<div className={"my-4"}>
+					<PostMarkdown content={postData.content} />
+				</div>
 			</div>
 			<Guide post={postData}/>
+
 		</section>
 	);
 }

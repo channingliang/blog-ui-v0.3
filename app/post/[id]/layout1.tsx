@@ -1,6 +1,5 @@
 import React from "react";
 import { ApiService } from "@/lib/apiService";
-import Guide from "@/components/post/guide";
 
 export default async function PostLayout({ params, children }: { params: { id: string }, children: React.ReactNode }) {
 	const postId = params.id;
@@ -19,7 +18,6 @@ export default async function PostLayout({ params, children }: { params: { id: s
 			<div className="flex-1">
 				{children}
 			</div>
-			<Guide post={postData}/>
 		</div>
 
 

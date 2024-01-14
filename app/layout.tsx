@@ -26,7 +26,7 @@ export default async function RootLayout({children}: { children: React.ReactNode
 		<body className={clsx(harmony.className, "antialiased")}>
 		<Providers themeProps={{attribute: "class", defaultTheme: "dark"}}>
 			<Navbar />
-			<main className="container mx-auto max-w-5xl py-4 px-4 flex-grow">
+			<main className="container mx-auto max-w-6xl py-4 px-4 flex-grow">
 				{children}
 			</main>
 			<footer className="w-full flex items-center justify-center p-4">

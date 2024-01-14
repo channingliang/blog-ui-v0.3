@@ -1,14 +1,14 @@
-'use client';
-
 import TitledDiv from "@/components/sidebar/titled-div";
 import { EditCalendar, Restore, AdsClick } from "@mui/icons-material";
 import InfoCard from "@/components/sidebar/info-card";
 import { formatTime, formatTimeZH } from "@/lib/utils";
 import { Chip } from "@nextui-org/react";
+import Toc from "@/components/post/toc";
+import React from "react";
 
 export default function SideGuide({post}: { post: PostData }) {
     return (
-        <div className="hidden md:block md:w-72">
+        <div className="md:w-72 w-full">
             <div className="grid grid-cols-1 gap-4">
                 <TitledDiv title={"副标题"} className={"py-4"}>
                     <h2>{post.subtitle}</h2>
@@ -40,8 +40,8 @@ export default function SideGuide({post}: { post: PostData }) {
                 </TitledDiv>
 
             </div>
-            <div className={"sticky top-20 border mt-4 h-72"}>
-
+            <div className={"sticky top-20 border mt-4 max-h-unit-9xl overflow-auto"}>
+                <Toc content={post.content} />
             </div>
 
         </div>

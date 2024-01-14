@@ -45,6 +45,10 @@
   @apply text-[0.8rem] text-center mb-4;
 }
 
+.markdown-custom {
+  @apply dark:bg-zinc-900 bg-zinc-100;
+}
+
 .markdown-custom h2 {
   @apply text-primary;
 }

@@ -1,5 +1,4 @@
-.markdown-body-dark {
-  color-scheme: dark;
+.markdown-body {
   --color-prettylights-syntax-comment: #8b949e;
   --color-prettylights-syntax-constant: #79c0ff;
   --color-prettylights-syntax-entity: #d2a8ff;
@@ -30,11 +29,11 @@
   --color-prettylights-syntax-brackethighlighter-angle: #8b949e;
   --color-prettylights-syntax-sublimelinter-gutter-mark: #484f58;
   --color-prettylights-syntax-constant-other-reference-link: #a5d6ff;
-  --color-fg-default: #e6edf3;
-  --color-fg-muted: #848d97;
-  --color-fg-subtle: #6e7681;
-  --color-canvas-default: #0d1117;
-  --color-canvas-subtle: #161b22;
+  /*--color-fg-default: #e6edf3;*/
+  /*--color-fg-muted: #848d97;*/
+  /*--color-fg-subtle: #6e7681;*/
+  /*--color-canvas-default: #0d1117;*/
+  /*--color-canvas-subtle: #161b22;*/
   --color-border-default: #30363d;
   --color-border-muted: #21262d;
   --color-neutral-muted: rgba(110,118,129,0.4);
@@ -51,66 +50,67 @@
   --color-done-emphasis: #8957e5;
 }
 
-.markdown-body-light {
-  color-scheme: light;
-  --color-prettylights-syntax-comment: #57606a;
-  --color-prettylights-syntax-constant: #0550ae;
-  --color-prettylights-syntax-entity: #6639ba;
-  --color-prettylights-syntax-storage-modifier-import: #24292f;
-  --color-prettylights-syntax-entity-tag: #116329;
-  --color-prettylights-syntax-keyword: #cf222e;
-  --color-prettylights-syntax-string: #0a3069;
-  --color-prettylights-syntax-variable: #953800;
-  --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
-  --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
-  --color-prettylights-syntax-invalid-illegal-bg: #82071e;
-  --color-prettylights-syntax-carriage-return-text: #f6f8fa;
-  --color-prettylights-syntax-carriage-return-bg: #cf222e;
-  --color-prettylights-syntax-string-regexp: #116329;
-  --color-prettylights-syntax-markup-list: #3b2300;
-  --color-prettylights-syntax-markup-heading: #0550ae;
-  --color-prettylights-syntax-markup-italic: #24292f;
-  --color-prettylights-syntax-markup-bold: #24292f;
-  --color-prettylights-syntax-markup-deleted-text: #82071e;
-  --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
-  --color-prettylights-syntax-markup-inserted-text: #116329;
-  --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
-  --color-prettylights-syntax-markup-changed-text: #953800;
-  --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
-  --color-prettylights-syntax-markup-ignored-text: #eaeef2;
-  --color-prettylights-syntax-markup-ignored-bg: #0550ae;
-  --color-prettylights-syntax-meta-diff-range: #8250df;
-  --color-prettylights-syntax-brackethighlighter-angle: #57606a;
-  --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
-  --color-prettylights-syntax-constant-other-reference-link: #0a3069;
-  --color-fg-default: #1F2328;
-  --color-fg-muted: #656d76;
-  --color-fg-subtle: #6e7781;
-  --color-canvas-default: #f1f3f5;
-  --color-canvas-subtle: #f6f8fa;
-  --color-border-default: #d0d7de;
-  --color-border-muted: hsla(210,18%,87%,1);
-  --color-neutral-muted: rgba(175,184,193,0.2);
-  --color-accent-fg: #0969da;
-  --color-accent-emphasis: #0969da;
-  --color-success-fg: #1a7f37;
-  --color-success-emphasis: #1f883d;
-  --color-attention-fg: #9a6700;
-  --color-attention-emphasis: #9a6700;
-  --color-attention-subtle: #fff8c5;
-  --color-danger-fg: #d1242f;
-  --color-danger-emphasis: #cf222e;
-  --color-done-fg: #8250df;
-  --color-done-emphasis: #8250df;
-}
+/*.markdown-body-light {*/
+/*  color-scheme: light;*/
+/*  --color-prettylights-syntax-comment: #57606a;*/
+/*  --color-prettylights-syntax-constant: #0550ae;*/
+/*  --color-prettylights-syntax-entity: #6639ba;*/
+/*  --color-prettylights-syntax-storage-modifier-import: #24292f;*/
+/*  --color-prettylights-syntax-entity-tag: #116329;*/
+/*  --color-prettylights-syntax-keyword: #cf222e;*/
+/*  --color-prettylights-syntax-string: #0a3069;*/
+/*  --color-prettylights-syntax-variable: #953800;*/
+/*  --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;*/
+/*  --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;*/
+/*  --color-prettylights-syntax-invalid-illegal-bg: #82071e;*/
+/*  --color-prettylights-syntax-carriage-return-text: #f6f8fa;*/
+/*  --color-prettylights-syntax-carriage-return-bg: #cf222e;*/
+/*  --color-prettylights-syntax-string-regexp: #116329;*/
+/*  --color-prettylights-syntax-markup-list: #3b2300;*/
+/*  --color-prettylights-syntax-markup-heading: #0550ae;*/
+/*  --color-prettylights-syntax-markup-italic: #24292f;*/
+/*  --color-prettylights-syntax-markup-bold: #24292f;*/
+/*  --color-prettylights-syntax-markup-deleted-text: #82071e;*/
+/*  --color-prettylights-syntax-markup-deleted-bg: #ffebe9;*/
+/*  --color-prettylights-syntax-markup-inserted-text: #116329;*/
+/*  --color-prettylights-syntax-markup-inserted-bg: #dafbe1;*/
+/*  --color-prettylights-syntax-markup-changed-text: #953800;*/
+/*  --color-prettylights-syntax-markup-changed-bg: #ffd8b5;*/
+/*  --color-prettylights-syntax-markup-ignored-text: #eaeef2;*/
+/*  --color-prettylights-syntax-markup-ignored-bg: #0550ae;*/
+/*  --color-prettylights-syntax-meta-diff-range: #8250df;*/
+/*  --color-prettylights-syntax-brackethighlighter-angle: #57606a;*/
+/*  --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;*/
+/*  --color-prettylights-syntax-constant-other-reference-link: #0a3069;*/
+/*  --color-fg-default: #1F2328;*/
+/*  --color-fg-muted: #656d76;*/
+/*  --color-fg-subtle: #6e7781;*/
+/*  --color-canvas-default: #f1f3f5;*/
+/*  --color-canvas-subtle: #f6f8fa;*/
+/*  --color-border-default: #d0d7de;*/
+/*  --color-border-muted: hsla(210,18%,87%,1);*/
+/*  --color-neutral-muted: rgba(175,184,193,0.2);*/
+/*  --color-accent-fg: #0969da;*/
+/*  --color-accent-emphasis: #0969da;*/
+/*  --color-success-fg: #1a7f37;*/
+/*  --color-success-emphasis: #1f883d;*/
+/*  --color-attention-fg: #9a6700;*/
+/*  --color-attention-emphasis: #9a6700;*/
+/*  --color-attention-subtle: #fff8c5;*/
+/*  --color-danger-fg: #d1242f;*/
+/*  --color-danger-emphasis: #cf222e;*/
+/*  --color-done-fg: #8250df;*/
+/*  --color-done-emphasis: #8250df;*/
+/*}*/
 
 .markdown-body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  --color-border-default: #30363d;
   margin: 0;
   color: var(--color-fg-default);
-  background-color: var(--color-canvas-default);
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  /*background-color: var(--color-canvas-default);*/
+  /*font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";*/
   font-size: 16px;
   line-height: 1.5;
   word-wrap: break-word;
@@ -159,25 +159,17 @@
 
 .markdown-body abbr[title] {
   border-bottom: none;
-  -webkit-text-decoration: underline dotted;
+  /*-webkit-text-decoration: underline dotted;*/
   text-decoration: underline dotted;
 }
 
 .markdown-body b,
 .markdown-body strong {
-  font-weight: var(--base-text-weight-semibold, 600);
+  /*font-weight: var(--base-text-weight-semibold, 600);*/
 }
 
 .markdown-body dfn {
   font-style: italic;
-}
-
-.markdown-body h1 {
-  margin: .67em 0;
-  font-weight: var(--base-text-weight-semibold, 600);
-  padding-bottom: .3em;
-  font-size: 2em;
-  border-bottom: 1px solid var(--color-border-muted);
 }
 
 .markdown-body mark {
@@ -209,7 +201,7 @@
   border-style: none;
   max-width: 100%;
   box-sizing: content-box;
-  background-color: var(--color-canvas-default);
+  /*background-color: var(--color-canvas-default);*/
 }
 
 .markdown-body code,
@@ -227,21 +219,18 @@
 .markdown-body hr {
   box-sizing: content-box;
   overflow: hidden;
-  background: transparent;
   border-bottom: 1px solid var(--color-border-muted);
   height: .25em;
   padding: 0;
   margin: 24px 0;
-  background-color: var(--color-border-default);
-  border: 0;
+  background: var(--color-border-default);
+  /*border: 0;*/
 }
 
 .markdown-body input {
   font: inherit;
   margin: 0;
   overflow: visible;
-  font-family: inherit;
-  font-size: inherit;
   line-height: inherit;
 }
 
@@ -249,7 +238,7 @@
 .markdown-body [type=reset],
 .markdown-body [type=submit] {
   -webkit-appearance: button;
-  appearance: button;
+  /*appearance: button;*/
 }
 
 .markdown-body [type=checkbox],
@@ -276,7 +265,7 @@
 
 .markdown-body ::-webkit-file-upload-button {
   -webkit-appearance: button;
-  appearance: button;
+  /*appearance: button;*/
   font: inherit;
 }
 
@@ -378,34 +367,34 @@
 .markdown-body h6 {
   margin-top: 24px;
   margin-bottom: 16px;
-  font-weight: var(--base-text-weight-semibold, 600);
+  font-weight: bold;
   line-height: 1.25;
 }
 
 .markdown-body h2 {
-  font-weight: var(--base-text-weight-semibold, 600);
+  /*font-weight: var(--base-text-weight-semibold, 600);*/
   padding-bottom: .3em;
   font-size: 1.5em;
   border-bottom: 1px solid var(--color-border-muted);
 }
 
 .markdown-body h3 {
-  font-weight: var(--base-text-weight-semibold, 600);
+  /*font-weight: var(--base-text-weight-semibold, 600);*/
   font-size: 1.25em;
 }
 
 .markdown-body h4 {
-  font-weight: var(--base-text-weight-semibold, 600);
+  /*font-weight: var(--base-text-weight-semibold, 600);*/
   font-size: 1em;
 }
 
 .markdown-body h5 {
-  font-weight: var(--base-text-weight-semibold, 600);
+  /*font-weight: var(--base-text-weight-semibold, 600);*/
   font-size: .875em;
 }
 
 .markdown-body h6 {
-  font-weight: var(--base-text-weight-semibold, 600);
+  /*font-weight: var(--base-text-weight-semibold, 600);*/
   font-size: .85em;
   color: var(--color-fg-muted);
 }
@@ -475,7 +464,7 @@
 }
 
 .markdown-body .mr-2 {
-  margin-right: var(--base-size-8, 8px) !important;
+  /*margin-right: var(--base-size-8, 8px) !important;*/
 }
 
 .markdown-body::before {
@@ -661,7 +650,7 @@
   margin-top: 16px;
   font-size: 1em;
   font-style: italic;
-  font-weight: var(--base-text-weight-semibold, 600);
+  /*font-weight: var(--base-text-weight-semibold, 600);*/
 }
 
 .markdown-body dl dd {
@@ -670,7 +659,7 @@
 }
 
 .markdown-body table th {
-  font-weight: var(--base-text-weight-semibold, 600);
+  /*font-weight: var(--base-text-weight-semibold, 600);*/
 }
 
 .markdown-body table th,
@@ -845,19 +834,18 @@
 
 .markdown-body .highlight pre,
 .markdown-body pre {
-  padding: 16px;
-  overflow: auto;
+  /*overflow: auto;*/
   font-size: 85%;
   line-height: 1.45;
   color: var(--color-fg-default);
-  background-color: var(--color-canvas-subtle);
+  background-color: var(--color-neutral-muted);
   border-radius: 6px;
 }
 
 .markdown-body pre code,
 .markdown-body pre tt {
   display: inline;
-  max-width: auto;
+  /*max-width: auto;*/
   padding: 0;
   margin: 0;
   overflow: visible;
@@ -889,7 +877,7 @@
 }
 
 .markdown-body .csv-data th {
-  font-weight: var(--base-text-weight-semibold, 600);
+  /*font-weight: var(--base-text-weight-semibold, 600);*/
   background: var(--color-canvas-subtle);
   border-top: 0;
 }
@@ -938,9 +926,9 @@
   color: var(--color-fg-default);
 }
 
-.markdown-body .footnotes .data-footnote-backref g-emoji {
-  font-family: monospace;
-}
+/*.markdown-body .footnotes .data-footnote-backref g-emoji {*/
+/*  font-family: monospace;*/
+/*}*/
 
 .markdown-body .pl-c {
   color: var(--color-prettylights-syntax-comment);
@@ -1062,28 +1050,28 @@
   color: var(--color-prettylights-syntax-constant-other-reference-link);
 }
 
-.markdown-body g-emoji {
-  display: inline-block;
-  min-width: 1ch;
-  font-family: "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-size: 1em;
-  font-style: normal !important;
-  font-weight: var(--base-text-weight-normal, 400);
-  line-height: 1;
-  vertical-align: -0.075em;
-}
+/*.markdown-body g-emoji {*/
+/*  display: inline-block;*/
+/*  min-width: 1ch;*/
+/*  font-family: "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";*/
+/*  font-size: 1em;*/
+/*  font-style: normal !important;*/
+/*  !*font-weight: var(--base-text-weight-normal, 400);*!*/
+/*  line-height: 1;*/
+/*  vertical-align: -0.075em;*/
+/*}*/
 
-.markdown-body g-emoji img {
-  width: 1em;
-  height: 1em;
-}
+/*.markdown-body g-emoji img {*/
+/*  width: 1em;*/
+/*  height: 1em;*/
+/*}*/
 
 .markdown-body .task-list-item {
   list-style-type: none;
 }
 
 .markdown-body .task-list-item label {
-  font-weight: var(--base-text-weight-normal, 400);
+  /*font-weight: var(--base-text-weight-normal, 400);*/
 }
 
 .markdown-body .task-list-item.enabled label {
@@ -1125,7 +1113,7 @@
 }
 
 .markdown-body .markdown-alert {
-  padding: var(--base-size-8) var(--base-size-16);
+  /*padding: var(--base-size-8) var(--base-size-16);*/
   margin-bottom: 16px;
   color: inherit;
   border-left: .25em solid var(--color-border-default);
@@ -1141,7 +1129,7 @@
 
 .markdown-body .markdown-alert .markdown-alert-title {
   display: flex;
-  font-weight: var(--base-text-weight-medium, 500);
+  /*font-weight: var(--base-text-weight-medium, 500);*/
   align-items: center;
   line-height: 1;
 }

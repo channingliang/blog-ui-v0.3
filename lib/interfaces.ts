@@ -46,3 +46,9 @@ interface PostData {
     tags: TagData[];
 }
 
+interface TocEntry {
+    id: string;
+    title: string;
+    level: number;
+}
+
