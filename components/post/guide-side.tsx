@@ -13,10 +13,10 @@ export default function GuideSide({post}: { post: PostData }) {
         <>
             <div className="lg:w-72 w-full">
                 <div className="grid grid-cols-1 gap-4">
-                    <TitledDiv title={"副标题"} className={"py-4"}>
+                    <TitledDiv title={"副标题"} className={"p-4"}>
                         <h2>{post.subtitle}</h2>
                     </TitledDiv>
-                    <TitledDiv title={"博文信息"} className={"py-4"}>
+                    <TitledDiv title={"博文信息"} className={"p-4"}>
                         <div className={"grid grid-cols-1 gap-2"}>
                             <InfoCard IconComponent={EditCalendar}
                                       mainText={"发布于 " + formatTimeZH(post.createTime)}/>
@@ -26,7 +26,7 @@ export default function GuideSide({post}: { post: PostData }) {
                             <InfoCard IconComponent={AdsClick} mainText={"浏览量 " + post.viewCount}/>
                         </div>
                     </TitledDiv>
-                    <TitledDiv title={"标签"} className={"py-4 flex flex-wrap gap-1"}>
+                    <TitledDiv title={"标签"} className={"p-4 flex flex-wrap gap-1"}>
                         {post.tags && post.tags.length > 0 ? (
                             post.tags.map((tag, index) => (
                                 <Chip
@@ -45,7 +45,7 @@ export default function GuideSide({post}: { post: PostData }) {
                 </div>
             </div>
             <div className="sticky top-16 grid grid-cols-1 gap-4 pt-4">
-                <TitledDiv title={"目录"} className={"py-4 overflow-auto max-h-[70vh] w-full"}>
+                <TitledDiv title={"目录"} className={"p-4 pl-6 overflow-auto max-h-[70vh] w-full"}>
                     <Toc content={post.content}/>
                 </TitledDiv>
                 <TitledDiv title={"工具"} className={"py-4 max-h-[10vh] w-full flex justify-center gap-4"}>

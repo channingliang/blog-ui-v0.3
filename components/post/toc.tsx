@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import { Link } from "@nextui-org/react";
 
 interface Heading {
     level: number;
@@ -34,7 +35,7 @@ const extractHeadings = (content: string): Heading[] => {
 };
 
 const scrollToHeading = (id: string) => {
-    const headingElement = document.getElementById(id);
+    const headingElement = document.getElementById(id.toLowerCase());
     if (headingElement) {
         const offset = 80;
         const bodyRect = document.body.getBoundingClientRect().top;
@@ -52,16 +53,32 @@ const scrollToHeading = (id: string) => {
 const renderListItems = (headings: Heading[]) => {
     return headings.map((heading, index) => (
         <li key={index} className={"my-2"}>
-            <a href={`#${heading.text}`} onClick={(e) => {e.preventDefault(); scrollToHeading(heading.text);}} className={"text-large hover:text-primary"}>
+            <Link
+                href={"#"}
+                className={"text-large font-bold hover:text-primary"}
+                color={"foreground"}
+                underline="hover"
+                onClick={(e) => {
+                    e.preventDefault();
+                    scrollToHeading(heading.text);
+                }}
+            >
                 {heading.text}
-            </a>
+            </Link>
             {heading.subHeadings && heading.subHeadings.length > 0 && (
                 <ul className={"ml-2 mt-2 border-l-2 border-zinc-700"}>
                     {heading.subHeadings.map((subHeading, subIndex) => (
                         <li key={subIndex} className={"text-small ml-6 my-2 hover:text-primary"}>
-                            <a href={`#${subHeading.text}`} onClick={(e) => {e.preventDefault(); scrollToHeading(subHeading.text);}}>
+                            <Link
+                                href={`#`}
+                                color={"foreground"}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    scrollToHeading(subHeading.text);
+                                }}
+                            >
                                 {subHeading.text}
-                            </a>
+                            </Link>
                         </li>
                     ))}
                 </ul>
@@ -76,8 +93,8 @@ const Toc = ({ content }: { content: string }) => {
     return headings.length === 0
         ? <p className={"text-small text-white/50"}>-无目录结构-</p>
         : (
-            <nav className={"toc pl-6"}>
-                <ol>{renderListItems(headings)}</ol>
+            <nav className={"toc pl-1"}>
+                <ol className={"list-disc"}>{renderListItems(headings)}</ol>
             </nav>
         );
 };

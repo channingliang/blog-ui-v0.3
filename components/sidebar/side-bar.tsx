@@ -20,28 +20,30 @@ export default function SideBar({ blogData }: { blogData: BlogData }) {
                         color={"primary"}
                         src="/assets/avatar.jpg"
                         href="/about"/>
-                    <div className="sidebar-box w-full md:w-auto">
+                    <div className="title-box p-4 w-full md:w-auto">
                         <TypedText
-                            strings={["Hi~我是Leon", "精神状态良好", "坚持早睡早起", "绝对不会熬夜"]}/>
+                            strings={["Hi~我是Leon", "精神状态良好", "坚持早睡早起", "绝对不会熬夜"]}
+                        />
                     </div>
                 </div>
                 <div className="h-12 flex items-center">
-                    <TitledDiv title={"已熬夜"}>
-                        <Runtime className={"text-sm md:w-auto w-full"}/>
+                    <TitledDiv title={"已熬夜"} className={"p-4"}>
+                        <Runtime className={"text-sm md:w-auto w-full mx-2"}/>
                     </TitledDiv>
                 </div>
                 <div className="h-12 flex items-center w-full md:w-auto">
-                    <TitledDiv title={"近期状态"}>
+                    <TitledDiv title={"近期状态"} className={"p-4"}>
                         <div>学习中</div>
                     </TitledDiv>
-                    <div className={"sidebar-box ml-4"}>
+                    <div className={"title-box ml-4 p-4"}>
                         <p className={"text-xl"}>📚</p>
                     </div>
                 </div>
             </div>
             <div className="md:sticky md:top-16 grid grid-cols-1 gap-4 pt-4">
-                <TitledDiv title={"本站数据"}
-                           className={"sticky top-0 flex flex-wrap md:grid md:grid-cols-2 gap-4 py-4 w-full"}>
+                <TitledDiv
+                    title={"本站数据"}
+                    className={"sticky top-0 flex flex-wrap md:grid md:grid-cols-2 gap-4 p-4 w-full"}>
                     <InfoCard
                         IconComponent={Article}
                         mainText={"记录 " + blogData.articleCount + " 篇"}
@@ -63,8 +65,9 @@ export default function SideBar({ blogData }: { blogData: BlogData }) {
                         mainText={"收集 " + blogData.commentCount + " 条"}
                         secondaryText="评论"/>
                 </TitledDiv>
-                <TitledDiv title={"近期更新"}
-                           className={"h-[200px] flex flex-wrap md:grid md:grid-cols-1 gap-4 py-4 w-full"}>
+                <TitledDiv
+                    title={"近期更新"}
+                    className={"h-[200px] flex flex-wrap md:grid md:grid-cols-1 gap-4 p-4 w-full"}>
 
                 </TitledDiv>
             </div>

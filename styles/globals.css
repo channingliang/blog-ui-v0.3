@@ -54,8 +54,8 @@
   text-shadow: 0 0 20px rgba(255, 255, 255);
 }
 
-.sidebar-box {
-  @apply h-full rounded-lg border-2 flex items-center px-4;
+.title-box {
+  @apply h-full rounded-lg border-2 flex items-center;
 }
 
 .section-title {

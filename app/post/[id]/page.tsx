@@ -4,10 +4,9 @@ import Image from "next/image";
 import cover from "@/public/assets/default-bg.jpg";
 import { BreadcrumbItemProps, Card, CardFooter, Link } from "@nextui-org/react";
 import Markdown from "@/components/post/markdown";
-import GuideSide from "@/components/post/guide-side";
 import IBreadcrumbs from "@/components/breadcrumbs";
-import ScrollTopBtn from "@/components/post/scroll-top-btn";
-import ScrollEndBtn from "@/components/post/scroll-end-btn";
+import GuideSide from "@/components/post/guide-side";
+import GuideFixed from "@/components/post/guide-fixed";
 
 export default async function PostPage({ params }: { params: { id: string } }) {
 	const postId = params.id;
@@ -28,6 +27,8 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 		{ href: "/posts", children: "博文" },
 		{ href: "/posts/" + postId, children: postData.title }
 	];
+
+	console.log(breadcrumbItems)
 
 	return (
 		<section className="lg:flex grid grid-cols-1 gap-4">
@@ -73,16 +74,15 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 							<span className={"text-small"}>下一篇：</span>
 							<Link underline={"hover"}
 								  href={"/post/" + postData.next.postId}>{postData.next.title}</Link>
-						</div> :
-						<p className={"text-small"}>没有更多了~</p>}
+						</div>
+						: <p className={"text-small"}>没有更多了~</p>}
 				</div>
 			</div>
 			<div className="lg:w-72 w-full lg:block hidden">
 				<GuideSide post={postData}/>
 			</div>
-			<div className={"lg:hidden fixed bottom-4 right-2 grid grid-cols-1 gap-2"}>
-				<ScrollTopBtn className={"text-foreground"} tooltip={"left"} variant={"ghost"}/>
-				<ScrollEndBtn className={"text-foreground"} id={"postNav"} tooltip={"left"} variant={"ghost"}/>
+			<div className={"lg:hidden fixed bottom-4 right-2 "}>
+				<GuideFixed content={postData.content} />
 			</div>
 		</section>
 	);
