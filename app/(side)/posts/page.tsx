@@ -1,6 +1,8 @@
 import { ApiService } from "@/lib/apiService";
 import IPagination from "@/components/pagination";
-import PostCard from "@/components/post/post-card";
+import PostCard from "@/components/post/card";
+import { BreadcrumbItem, Breadcrumbs } from "@nextui-org/react";
+import React from "react";
 
 export default async function PostsPage({ searchParams } : {
 	searchParams?: {

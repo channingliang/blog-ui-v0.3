@@ -16,7 +16,9 @@ export default async function RootLayout({children}: { children: React.ReactNode
 				<div className="flex-1">
 					{children}
 				</div>
-				<Sidebar blogData={blogData} />
+				<div className="md:w-72 w-full">
+					<Sidebar blogData={blogData} />
+				</div>
 			</div>
 		</>
 

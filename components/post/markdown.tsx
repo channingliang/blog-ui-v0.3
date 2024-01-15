@@ -13,9 +13,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import Toc from "@/components/post/toc";
 
-export default function PostMarkdown({ content }: { content: string }) {
-
-    content = '## 目录\n' + content;
+export default function Markdown({ content }: { content: string }) {
     return (
         <div className={"markdown-body markdown-custom p-8 border-2 rounded-xl"}>
             <ReactMarkdown
