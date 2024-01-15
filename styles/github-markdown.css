@@ -208,6 +208,8 @@
 .markdown-body kbd,
 .markdown-body pre,
 .markdown-body samp {
+  overflow: auto;
+  padding: .5rem;
   font-family: monospace;
   font-size: 1em;
 }

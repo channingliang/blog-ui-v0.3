@@ -2,10 +2,12 @@ import React from "react";
 import { ApiService } from "@/lib/apiService";
 import Image from "next/image";
 import cover from "@/public/assets/default-bg.jpg";
-import { BreadcrumbItemProps, Card, CardFooter } from "@nextui-org/react";
+import { BreadcrumbItemProps, Card, CardFooter, Link } from "@nextui-org/react";
 import Markdown from "@/components/post/markdown";
-import Guide from "@/components/post/guide";
+import GuideSide from "@/components/post/guide-side";
 import IBreadcrumbs from "@/components/breadcrumbs";
+import ScrollTopBtn from "@/components/post/scroll-top-btn";
+import ScrollEndBtn from "@/components/post/scroll-end-btn";
 
 export default async function PostPage({ params }: { params: { id: string } }) {
 	const postId = params.id;
@@ -31,7 +33,7 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 		<section className="lg:flex grid grid-cols-1 gap-4">
 			<div className="flex-1">
 				<div className={"border-2 rounded-xl mb-4 p-4"}>
-					<IBreadcrumbs items={breadcrumbItems} />
+					<IBreadcrumbs items={breadcrumbItems}/>
 				</div>
 				<Card
 					className="h-[160px] sm:h-[300px] border-2"
@@ -58,12 +60,29 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 				<div className={"my-4"}>
 					<Markdown content={postData.content}/>
 				</div>
-				<div id={"postNav"}>
-					postNav
+				<div id={"postNav"} className={"border-2 rounded-xl p-4 flex items-center justify-between"}>
+					{postData.prev ?
+						<div>
+							<span className={"text-small"}>上一篇：</span>
+							<Link underline={"hover"}
+								  href={"/post/" + postData.prev.postId}>{postData.prev.title}</Link>
+						</div> :
+						<p className={"text-small"}>没有更多了~</p>}
+					{postData.next ?
+						<div>
+							<span className={"text-small"}>下一篇：</span>
+							<Link underline={"hover"}
+								  href={"/post/" + postData.next.postId}>{postData.next.title}</Link>
+						</div> :
+						<p className={"text-small"}>没有更多了~</p>}
 				</div>
 			</div>
-			<div className="lg:w-72 w-full">
-				<Guide post={postData}/>
+			<div className="lg:w-72 w-full lg:block hidden">
+				<GuideSide post={postData}/>
+			</div>
+			<div className={"lg:hidden fixed bottom-4 right-2 grid grid-cols-1 gap-2"}>
+				<ScrollTopBtn className={"text-foreground"} tooltip={"left"} variant={"ghost"}/>
+				<ScrollEndBtn className={"text-foreground"} id={"postNav"} tooltip={"left"} variant={"ghost"}/>
 			</div>
 		</section>
 	);

@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 
 import React from "react";
 import ReactMarkdown from "react-markdown";
@@ -8,14 +8,12 @@ import "@/styles/github-markdown.css";
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import Toc from "@/components/post/toc";
 
 export default function Markdown({ content }: { content: string }) {
     return (
-        <div className={"markdown-body markdown-custom p-8 border-2 rounded-xl"}>
+        <div className={"markdown-body markdown-custom py-6 px-4 md:px-6 lg:p-8 border-2 rounded-xl"}>
             <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[
@@ -38,6 +36,9 @@ export default function Markdown({ content }: { content: string }) {
                                 PreTag="div"
                                 language={match[1]}
                                 style={atomDark}
+                                customStyle={{
+                                    margin: 0,
+                                }}
                             >
                                 {String(children).replace(/\n$/, '')}
                             </SyntaxHighlighter>
@@ -51,7 +52,6 @@ export default function Markdown({ content }: { content: string }) {
             >
                 {content}
             </ReactMarkdown>
-
         </div>
     );
 }

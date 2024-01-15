@@ -44,11 +44,8 @@ interface PostData {
     editTime: string;
     viewCount: number;
     tags: TagData[];
+    prev: PostData;
+    next: PostData;
 }
 
-interface TocEntry {
-    id: string;
-    title: string;
-    level: number;
-}
 

@@ -8,7 +8,7 @@ import React from "react";
 import ScrollTopBtn from "@/components/post/scroll-top-btn";
 import ScrollEndBtn from "@/components/post/scroll-end-btn";
 
-export default function SideGuide({post}: { post: PostData }) {
+export default function GuideSide({post}: { post: PostData }) {
     return (
         <>
             <div className="lg:w-72 w-full">
@@ -49,8 +49,8 @@ export default function SideGuide({post}: { post: PostData }) {
                     <Toc content={post.content}/>
                 </TitledDiv>
                 <TitledDiv title={"工具"} className={"py-4 max-h-[10vh] w-full flex justify-center gap-4"}>
-                    <ScrollTopBtn className={"text-primary"} />
-                    <ScrollEndBtn id={"postNav"} className={"text-primary"} />
+                    <ScrollTopBtn className={"text-foreground"} variant={"ghost"} tooltip={"bottom-start"} />
+                    <ScrollEndBtn id={"postNav"} className={"text-foreground"} variant={"ghost"} tooltip={"bottom-end"} />
                 </TitledDiv>
             </div>
         </>
