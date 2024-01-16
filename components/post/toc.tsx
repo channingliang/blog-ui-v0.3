@@ -6,35 +6,69 @@ import { Link } from "@nextui-org/react";
 interface Heading {
     level: number;
     text: string;
-    subHeadings?: Heading[];
+    id: string;
+    sub?: Heading[];
 }
 
 const extractHeadings = (content: string): Heading[] => {
-    const regex = /^(#{2,3})\s(.+)$/gm;
+    const regex = /^(\#{2,4})\s+(.+)$/gm;
     let matches;
     let headings: Heading[] = [];
-    let lastLevel2Heading: Heading | null = null;
+    let h2Counter = 0, h3Counter = 0, h4Counter = 0;
+    let skipped = false;
 
     while ((matches = regex.exec(content)) !== null) {
         const level = matches[1].length;
         const text = matches[2].trim();
-        const newHeading: Heading = { level, text };
+        let id = '';
 
         if (level === 2) {
-            lastLevel2Heading = newHeading;
+            h2Counter++;
+            h3Counter = 0;
+            h4Counter = 0;
+            id = `heading-${h2Counter}`;
+        } else if (level === 3) {
+            h3Counter++;
+            h4Counter = 0;
+            id = `heading-${h2Counter}-${h3Counter}`;
+        } else if (level === 4) {
+            h4Counter++;
+            id = `heading-${h2Counter}-${h3Counter}-1`;
+        }
+
+        const newHeading: Heading = { level, text, id };
+
+        if (level === 2) {
             headings.push(newHeading);
-        } else if (level === 3 && lastLevel2Heading) {
-            if (!lastLevel2Heading.subHeadings) {
-                lastLevel2Heading.subHeadings = [];
+        } else if (level === 3) {
+            const lastH2 = headings[headings.length - 1];
+            if (!lastH2.sub) {
+                lastH2.sub = [];
             }
-            lastLevel2Heading.subHeadings.push(newHeading);
+            lastH2.sub.push(newHeading);
+            skipped = false;
+        } else if (level === 4) {
+            const lastH2 = headings[headings.length - 1];
+            if (!lastH2.sub) {
+                skipped = true;
+                lastH2.sub = [];
+                lastH2.sub.push(newHeading);
+            } else if (skipped) {
+                lastH2.sub.push(newHeading);
+            } else {
+                const lastH3 = lastH2.sub[lastH2.sub.length - 1];
+                if (!lastH3.sub) {
+                    lastH3.sub = [];
+                }
+                lastH3.sub.push(newHeading);
+            }
+
         }
     }
-
     return headings;
 };
 
-const scrollToHeading = (id: string) => {
+const scrollToHeading = (id: string, action?: () => void) => {
     const headingElement = document.getElementById(id.toLowerCase());
     if (headingElement) {
         const offset = 80;
@@ -47,56 +81,80 @@ const scrollToHeading = (id: string) => {
             top: offsetPosition,
             behavior: "smooth"
         });
+
+        if (action) action();
     }
 };
 
-const renderListItems = (headings: Heading[]) => {
-    return headings.map((heading, index) => (
-        <li key={index} className={"my-2"}>
-            <Link
-                href={"#"}
-                className={"text-large font-bold hover:text-primary"}
-                color={"foreground"}
-                underline="hover"
-                onClick={(e) => {
-                    e.preventDefault();
-                    scrollToHeading(heading.text);
-                }}
-            >
-                {heading.text}
-            </Link>
-            {heading.subHeadings && heading.subHeadings.length > 0 && (
-                <ul className={"ml-2 mt-2 border-l-2 border-zinc-700"}>
-                    {heading.subHeadings.map((subHeading, subIndex) => (
-                        <li key={subIndex} className={"text-small ml-6 my-2 hover:text-primary"}>
-                            <Link
-                                href={`#`}
-                                color={"foreground"}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    scrollToHeading(subHeading.text);
-                                }}
-                            >
-                                {subHeading.text}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </li>
-    ));
-};
-
-const Toc = ({ content }: { content: string }) => {
+const Toc = ({ content, action }: { content: string, action?: () => void }) => {
     const headings = extractHeadings(content);
 
-    return headings.length === 0
-        ? <p className={"text-small text-white/50"}>-无目录结构-</p>
-        : (
-            <nav className={"toc pl-1"}>
-                <ol className={"list-disc"}>{renderListItems(headings)}</ol>
-            </nav>
-        );
+    if (headings.length === 0) return <p className={"text-small text-white/50"}>-无目录结构-</p>;
+
+    const handleLinkClick = (e: React.MouseEvent, headingText: string) => {
+        e.preventDefault();
+        scrollToHeading(headingText);
+        if (action) action();
+    };
+
+    const renderListItems = (headings: Heading[]) => {
+        return headings.map((heading, index) => (
+            <li key={'h4' + index} className={"my-2"}>
+                <Link
+                    href={"#"}
+                    className={"text-large font-bold hover:text-primary"}
+                    color={"foreground"}
+                    underline="hover"
+                    onClick={(e) => handleLinkClick(e, heading.id)}
+                >
+                    {heading.text}
+                </Link>
+                {heading.sub && heading.sub.length > 0 && (
+                    <ol className={"list-disc list-inside ml-1 border-l-1"}>
+                        {heading.sub.map((subHeading, subIndex) => (
+                            <li key={'h4' + subIndex} className={"text-small ml-6 my-2"}>
+                                <Link
+                                    href={`#`}
+                                    color={"foreground"}
+                                    underline="hover"
+                                    onClick={
+                                        (e) => handleLinkClick(e, subHeading.id)
+                                    }
+                                >
+                                    {subHeading.text}
+                                </Link>
+                                {subHeading.sub && subHeading.sub.length > 0 && (
+                                    <ol className={"ml-1 border-l"}>
+                                        {subHeading.sub.map((subSubHeading, subSubIndex) => (
+                                            <li key={'h4' + subSubIndex} className={"text-small ml-6 my-2"}>
+                                                <Link
+                                                    href={`#`}
+                                                    color={"foreground"}
+                                                    underline="hover"
+                                                    onClick={
+                                                        (e) =>
+                                                            handleLinkClick(e, subSubHeading.id)
+                                                    }
+                                                >
+                                                    {subSubHeading.text}
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ol>
+                                )}
+                            </li>
+                        ))}
+                    </ol>
+                )}
+            </li>
+        ));
+    };
+
+    return (
+        <nav>
+            <ol className={"text-primary list-decimal list-inside"}>{renderListItems(headings)}</ol>
+        </nav>
+    );
 };
 
 export default Toc;

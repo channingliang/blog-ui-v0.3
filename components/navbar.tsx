@@ -20,7 +20,6 @@ import clsx from "clsx";
 import { ThemeSwitch } from "@/components/theme-switch";
 import React, { useState } from "react";
 import { AccountBox, Search } from "@mui/icons-material";
-import { base } from "next/dist/build/webpack/config/blocks/base";
 
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

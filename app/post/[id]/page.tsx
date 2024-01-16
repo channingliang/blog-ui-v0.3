@@ -28,8 +28,6 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 		{ href: "/posts/" + postId, children: postData.title }
 	];
 
-	console.log(breadcrumbItems)
-
 	return (
 		<section className="lg:flex grid grid-cols-1 gap-4">
 			<div className="flex-1">

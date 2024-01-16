@@ -39,13 +39,13 @@ export default function GuideSide({post}: { post: PostData }) {
                                 </Chip>
                             ))
                         ) : (
-                            <p className={"text-small text-white/50"}>-未添加标签-</p>
+                            <p className={"px-2 text-small text-white/50"}>-未添加标签-</p>
                         )}
                     </TitledDiv>
                 </div>
             </div>
             <div className="sticky top-16 grid grid-cols-1 gap-4 pt-4">
-                <TitledDiv title={"目录"} className={"p-4 pl-6 overflow-auto max-h-[70vh] w-full"}>
+                <TitledDiv title={"目录"} className={"py-4 px-6 overflow-auto max-h-[70vh] w-full"}>
                     <Toc content={post.content}/>
                 </TitledDiv>
                 <TitledDiv title={"工具"} className={"py-4 max-h-[10vh] w-full flex justify-center gap-4"}>

@@ -1,4 +1,12 @@
-import { Popover, PopoverContent, PopoverTrigger } from "@nextui-org/react";
+'use client';
+
+import {
+    Modal,
+    ModalBody,
+    ModalContent,
+    ModalHeader,
+    useDisclosure
+} from "@nextui-org/react";
 import React from "react";
 import ScrollTopBtn from "@/components/post/scroll-top-btn";
 import ScrollEndBtn from "@/components/post/scroll-end-btn";
@@ -7,27 +15,38 @@ import { Toc as TocIcon } from "@mui/icons-material";
 import Toc from "@/components/post/toc";
 
 export default function GuideFixed({content}: { content: string }) {
+    const {isOpen, onOpen, onOpenChange} = useDisclosure();
     return (
         <div className={"grid grid-cols-1 gap-2"}>
-            <Popover placement="left-end" backdrop={"blur"} shouldBlockScroll>
-                <PopoverTrigger>
-                    <Button
-                        className={"text-foreground"}
-                        isIconOnly
-                        aria-label="Go End"
-                        color={"primary"}
-                        variant={"ghost"}
-                    >
-                        <TocIcon />
-                    </Button>
-                </PopoverTrigger>
-                <PopoverContent className={"p-0 w-[250px] h-[500px] border"}>
-                    <div className={"p-2 px-6 overflow-auto"}>
-                        <Toc content={content} />
-                    </div>
-
-                </PopoverContent>
-            </Popover>
+            <Modal
+                isOpen={isOpen}
+                placement={"bottom-center"}
+                onOpenChange={onOpenChange}
+                scrollBehavior={"inside"}
+            >
+                <ModalContent className={"max-h-[60vh]"}>
+                    {(onClose) => (
+                        <>
+                            <ModalHeader className="flex flex-col gap-1">目录</ModalHeader>
+                            <ModalBody className={"py-2"}>
+                                <div className={"px-6"}>
+                                    <Toc content={content} action={onClose}/>
+                                </div>
+                            </ModalBody>
+                        </>
+                    )}
+                </ModalContent>
+            </Modal>
+            <Button
+                className={"text-foreground"}
+                isIconOnly
+                aria-label="Go End"
+                color={"primary"}
+                variant={"ghost"}
+                onPress={onOpen}
+            >
+                <TocIcon />
+            </Button>
             <ScrollTopBtn className={"text-foreground"} tooltip={"left"} variant={"ghost"}/>
             <ScrollEndBtn className={"text-foreground"} id={"postNav"} tooltip={"left"} variant={"ghost"}/>
 

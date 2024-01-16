@@ -14,7 +14,7 @@ export default async function PostsPage({ searchParams } : {
 		const res = await api.get('http://localhost:10321/posts', {
 			params: {
 				page: page,
-				size: 2
+				size: 5
 			},
 			next: { revalidate: 3600 }
 		});

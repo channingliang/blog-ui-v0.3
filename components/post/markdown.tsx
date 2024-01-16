@@ -10,6 +10,36 @@ import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import { visit } from "unist-util-visit";
+import { Snippet } from "@nextui-org/react";
+
+function customSlug() {
+    return (tree: any) => {
+        let h2Counter = 0; // 用于跟踪 h2 标题的计数器
+        let h3Counter = 0; // 用于跟踪当前 h2 标题下的 h3 计数器
+        let h4Counter = 0; // 用于跟踪当前 h3 标题下的 h4 计数器
+
+        visit(tree, 'element', (node) => {
+            if (node.tagName === 'h2') {
+                h2Counter++;
+                h3Counter = 0; // 重置 h3 计数器
+                h4Counter = 0; // 重置 h4 计数器
+                node.properties.id = `heading-${h2Counter}`;
+            }
+
+            if (node.tagName === 'h3') {
+                h3Counter++;
+                h4Counter = 0; // 重置 h4 计数器
+                node.properties.id = `heading-${h2Counter}-${h3Counter}`;
+            }
+
+            if (node.tagName === 'h4') {
+                h4Counter++;
+                node.properties.id = `heading-${h2Counter}-${h3Counter}-${h4Counter}`;
+            }
+        });
+    };
+}
 
 export default function Markdown({ content }: { content: string }) {
     return (
@@ -18,8 +48,9 @@ export default function Markdown({ content }: { content: string }) {
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[
                     rehypeReact,
-                    rehypeSlug,
-                    rehypeAutolinkHeadings,
+                    customSlug,
+                    // rehypeSlug,
+                    // rehypeAutolinkHeadings,
                 ]}
                 components={{
                     a(props) {
@@ -27,12 +58,10 @@ export default function Markdown({ content }: { content: string }) {
                         return <a target={"_blank"} {...rest} />
                     },
                     code(props) {
-                        const {children, className, node, ...rest} = props
+                        const {children, className, node} = props
                         const match = /language-(\w+)/.exec(className || '')
                         return match ? (
-                            // @ts-ignore
                             <SyntaxHighlighter
-                                {...rest}
                                 PreTag="div"
                                 language={match[1]}
                                 style={atomDark}
@@ -42,8 +71,9 @@ export default function Markdown({ content }: { content: string }) {
                             >
                                 {String(children).replace(/\n$/, '')}
                             </SyntaxHighlighter>
+
                         ) : (
-                            <code {...rest} className={className}>
+                            <code className={"h-auto"}>
                                 {children}
                             </code>
                         )
