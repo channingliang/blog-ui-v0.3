@@ -66,20 +66,24 @@
   @apply text-[0.8rem] text-center mb-4;
 }
 
-.markdown-custom {
-  @apply dark:bg-zinc-900 bg-zinc-100;
+.post-card:hover {
+
 }
 
-.markdown-custom h2 {
-  @apply text-primary;
-}
-
+/*.markdown-custom {*/
+/*  @apply dark:bg-zinc-900 bg-zinc-100;*/
+/*}*/
+/*.markdown-custom h2 {*/
+/*  @apply text-primary;*/
+/*}*/
 .markdown-custom ul {
   @apply list-disc;
 }
-
 .markdown-custom ol {
   @apply list-decimal;
+}
+.progress-bar {
+  height: 3rem;
 }
 
 

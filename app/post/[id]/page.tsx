@@ -80,7 +80,7 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 				<GuideSide post={postData}/>
 			</div>
 			<div className={"lg:hidden fixed bottom-4 right-2 "}>
-				<GuideFixed content={postData.content} />
+				<GuideFixed content={postData.content}/>
 			</div>
 		</section>
 	);

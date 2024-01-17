@@ -1,5 +1,3 @@
-// 'use client';
-
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -7,11 +5,9 @@ import rehypeReact from 'rehype-react';
 import "@/styles/github-markdown.css";
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { visit } from "unist-util-visit";
-import { Snippet } from "@nextui-org/react";
+import { Link } from "@nextui-org/link";
+import { AnchorIcon } from "@nextui-org/shared-icons";
 
 function customSlug() {
     return (tree: any) => {
@@ -54,11 +50,18 @@ export default function Markdown({ content }: { content: string }) {
                 ]}
                 components={{
                     a(props) {
-                        const {node, ...rest} = props;
-                        return <a target={"_blank"} {...rest} />
+                        const {children,  ...rest} = props;
+                        return <Link
+                            isExternal
+                            showAnchorIcon
+                            href={rest.href}
+                            anchorIcon={<AnchorIcon />}
+                        >
+                            {children}
+                        </Link>
                     },
                     code(props) {
-                        const {children, className, node} = props
+                        const {children, className} = props
                         const match = /language-(\w+)/.exec(className || '')
                         return match ? (
                             <SyntaxHighlighter
@@ -71,9 +74,8 @@ export default function Markdown({ content }: { content: string }) {
                             >
                                 {String(children).replace(/\n$/, '')}
                             </SyntaxHighlighter>
-
                         ) : (
-                            <code className={"h-auto"}>
+                            <code className={className}>
                                 {children}
                             </code>
                         )

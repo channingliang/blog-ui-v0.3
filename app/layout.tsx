@@ -7,6 +7,7 @@ import { Navbar } from "@/components/navbar";
 import { Divider } from "@nextui-org/react";
 import React from "react";
 import clsx from "clsx";
+import NextTopLoader from "nextjs-toploader";
 
 export const metadata: Metadata = {
 	title: {
@@ -25,6 +26,7 @@ export default async function RootLayout({children}: { children: React.ReactNode
 		<head />
 		<body className={clsx(harmony.className, "antialiased")}>
 		<Providers themeProps={{attribute: "class", defaultTheme: "dark"}}>
+			<NextTopLoader color={"#3f3f46"} height={5} showSpinner={false} />
 			<Navbar />
 			<main className="container mx-auto max-w-6xl py-4 px-4 flex-grow">
 				{children}

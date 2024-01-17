@@ -20,6 +20,7 @@ export default function GuideFixed({content}: { content: string }) {
         <div className={"grid grid-cols-1 gap-2"}>
             <Modal
                 isOpen={isOpen}
+                backdrop={"blur"}
                 placement={"bottom-center"}
                 onOpenChange={onOpenChange}
                 scrollBehavior={"inside"}
@@ -27,9 +28,9 @@ export default function GuideFixed({content}: { content: string }) {
                 <ModalContent className={"max-h-[60vh]"}>
                     {(onClose) => (
                         <>
-                            <ModalHeader className="flex flex-col gap-1">目录</ModalHeader>
-                            <ModalBody className={"py-2"}>
-                                <div className={"px-6"}>
+                            <ModalHeader>目录</ModalHeader>
+                            <ModalBody>
+                                <div className={"px-6 pb-6"}>
                                     <Toc content={content} action={onClose}/>
                                 </div>
                             </ModalBody>

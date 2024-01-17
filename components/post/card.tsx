@@ -1,27 +1,23 @@
-'use client';
+// 'use client';
 
 import React from 'react';
 import Image from "next/image";
-import { Card, CardHeader, CardFooter } from "@nextui-org/react";
+import { Card, CardHeader, CardFooter, Link } from "@nextui-org/react";
 import { AccessTime, AdsClick } from "@mui/icons-material";
 import cover from "@/public/assets/default-bg.jpg";
 import { formatTime } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import NextLink from "next/link";
 
 export default function PostCard({ post }: { post: PostsData }) {
-    const router = useRouter();
-
-    function handlePress() {
-        router.push('/post/' + post.postId);
-    }
 
     return (
         <Card
-            isPressable
             key={post.postId}
-            className="h-[160px] sm:h-[250px] border-2"
+            className="post-card h-[160px] sm:h-[250px] border-2"
             shadow={"sm"}
-            onPress={handlePress}
+            as={Link}
+            href={"/post/" + post.postId}
         >
             <CardHeader className="absolute z-10 top-1 flex-col items-start">
                 <p className="text-tiny text-white/60 font-bold text-glow-white">LEON</p>
@@ -54,5 +50,6 @@ export default function PostCard({ post }: { post: PostsData }) {
                 </div>
             </CardFooter>
         </Card>
+
     );
 }

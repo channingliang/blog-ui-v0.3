@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .markdown-body {
   --color-prettylights-syntax-comment: #8b949e;
   --color-prettylights-syntax-constant: #79c0ff;
@@ -29,11 +33,6 @@
   --color-prettylights-syntax-brackethighlighter-angle: #8b949e;
   --color-prettylights-syntax-sublimelinter-gutter-mark: #484f58;
   --color-prettylights-syntax-constant-other-reference-link: #a5d6ff;
-  /*--color-fg-default: #e6edf3;*/
-  /*--color-fg-muted: #848d97;*/
-  /*--color-fg-subtle: #6e7681;*/
-  /*--color-canvas-default: #0d1117;*/
-  /*--color-canvas-subtle: #161b22;*/
   --color-border-default: #30363d;
   --color-border-muted: #21262d;
   --color-neutral-muted: rgba(110,118,129,0.4);
@@ -50,60 +49,8 @@
   --color-done-emphasis: #8957e5;
 }
 
-/*.markdown-body-light {*/
-/*  color-scheme: light;*/
-/*  --color-prettylights-syntax-comment: #57606a;*/
-/*  --color-prettylights-syntax-constant: #0550ae;*/
-/*  --color-prettylights-syntax-entity: #6639ba;*/
-/*  --color-prettylights-syntax-storage-modifier-import: #24292f;*/
-/*  --color-prettylights-syntax-entity-tag: #116329;*/
-/*  --color-prettylights-syntax-keyword: #cf222e;*/
-/*  --color-prettylights-syntax-string: #0a3069;*/
-/*  --color-prettylights-syntax-variable: #953800;*/
-/*  --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;*/
-/*  --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;*/
-/*  --color-prettylights-syntax-invalid-illegal-bg: #82071e;*/
-/*  --color-prettylights-syntax-carriage-return-text: #f6f8fa;*/
-/*  --color-prettylights-syntax-carriage-return-bg: #cf222e;*/
-/*  --color-prettylights-syntax-string-regexp: #116329;*/
-/*  --color-prettylights-syntax-markup-list: #3b2300;*/
-/*  --color-prettylights-syntax-markup-heading: #0550ae;*/
-/*  --color-prettylights-syntax-markup-italic: #24292f;*/
-/*  --color-prettylights-syntax-markup-bold: #24292f;*/
-/*  --color-prettylights-syntax-markup-deleted-text: #82071e;*/
-/*  --color-prettylights-syntax-markup-deleted-bg: #ffebe9;*/
-/*  --color-prettylights-syntax-markup-inserted-text: #116329;*/
-/*  --color-prettylights-syntax-markup-inserted-bg: #dafbe1;*/
-/*  --color-prettylights-syntax-markup-changed-text: #953800;*/
-/*  --color-prettylights-syntax-markup-changed-bg: #ffd8b5;*/
-/*  --color-prettylights-syntax-markup-ignored-text: #eaeef2;*/
-/*  --color-prettylights-syntax-markup-ignored-bg: #0550ae;*/
-/*  --color-prettylights-syntax-meta-diff-range: #8250df;*/
-/*  --color-prettylights-syntax-brackethighlighter-angle: #57606a;*/
-/*  --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;*/
-/*  --color-prettylights-syntax-constant-other-reference-link: #0a3069;*/
-/*  --color-fg-default: #1F2328;*/
-/*  --color-fg-muted: #656d76;*/
-/*  --color-fg-subtle: #6e7781;*/
-/*  --color-canvas-default: #f1f3f5;*/
-/*  --color-canvas-subtle: #f6f8fa;*/
-/*  --color-border-default: #d0d7de;*/
-/*  --color-border-muted: hsla(210,18%,87%,1);*/
-/*  --color-neutral-muted: rgba(175,184,193,0.2);*/
-/*  --color-accent-fg: #0969da;*/
-/*  --color-accent-emphasis: #0969da;*/
-/*  --color-success-fg: #1a7f37;*/
-/*  --color-success-emphasis: #1f883d;*/
-/*  --color-attention-fg: #9a6700;*/
-/*  --color-attention-emphasis: #9a6700;*/
-/*  --color-attention-subtle: #fff8c5;*/
-/*  --color-danger-fg: #d1242f;*/
-/*  --color-danger-emphasis: #cf222e;*/
-/*  --color-done-fg: #8250df;*/
-/*  --color-done-emphasis: #8250df;*/
-/*}*/
-
 .markdown-body {
+  @apply dark:bg-zinc-900 bg-zinc-100;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   --color-border-default: #30363d;
@@ -153,7 +100,8 @@
 
 .markdown-body a {
   background-color: transparent;
-  color: var(--color-accent-fg);
+  @apply text-focus;
+  /*color: var(--color-accent-fg);*/
   text-decoration: none;
 }
 
@@ -374,13 +322,14 @@
 }
 
 .markdown-body h2 {
-  /*font-weight: var(--base-text-weight-semibold, 600);*/
+  @apply text-primary font-bold;
   padding-bottom: .3em;
   font-size: 1.5em;
   border-bottom: 1px solid var(--color-border-muted);
 }
 
 .markdown-body h3 {
+  @apply text-primary font-bold;
   /*font-weight: var(--base-text-weight-semibold, 600);*/
   font-size: 1.25em;
 }
@@ -408,9 +357,10 @@
 
 .markdown-body blockquote {
   margin: 0;
-  padding: 0 1em;
-  color: var(--color-fg-muted);
-  border-left: .25em solid var(--color-border-default);
+  padding: 1em;
+  /*color: var(--color-fg-muted);*/
+  border-left: .25em solid;
+  @apply border-primary bg-zinc-200 dark:bg-zinc-800 rounded-r-[6px];
 }
 
 .markdown-body ul,
@@ -420,17 +370,17 @@
   padding-left: 2em;
 }
 
-.markdown-body ol ol,
-.markdown-body ul ol {
-  list-style-type: lower-roman;
-}
+/*.markdown-body ol ol,*/
+/*.markdown-body ul ol {*/
+/*  list-style-type: lower-roman;*/
+/*}*/
 
-.markdown-body ul ul ol,
-.markdown-body ul ol ol,
-.markdown-body ol ul ol,
-.markdown-body ol ol ol {
-  list-style-type: lower-alpha;
-}
+/*.markdown-body ul ul ol,*/
+/*.markdown-body ul ol ol,*/
+/*.markdown-body ol ul ol,*/
+/*.markdown-body ol ol ol {*/
+/*  list-style-type: lower-alpha;*/
+/*}*/
 
 .markdown-body dd {
   margin-left: 0;
@@ -600,32 +550,32 @@
 .markdown-body ul.no-list,
 .markdown-body ol.no-list {
   padding: 0;
-  list-style-type: none;
+  /*list-style-type: none;*/
 }
 
-.markdown-body ol[type="a s"] {
-  list-style-type: lower-alpha;
-}
+/*.markdown-body ol[type="a s"] {*/
+/*  list-style-type: lower-alpha;*/
+/*}*/
 
-.markdown-body ol[type="A s"] {
-  list-style-type: upper-alpha;
-}
+/*.markdown-body ol[type="A s"] {*/
+/*  list-style-type: upper-alpha;*/
+/*}*/
 
-.markdown-body ol[type="i s"] {
-  list-style-type: lower-roman;
-}
+/*.markdown-body ol[type="i s"] {*/
+/*  list-style-type: lower-roman;*/
+/*}*/
 
-.markdown-body ol[type="I s"] {
-  list-style-type: upper-roman;
-}
+/*.markdown-body ol[type="I s"] {*/
+/*  list-style-type: upper-roman;*/
+/*}*/
 
-.markdown-body ol[type="1"] {
-  list-style-type: decimal;
-}
+/*.markdown-body ol[type="1"] {*/
+/*  list-style-type: decimal;*/
+/*}*/
 
-.markdown-body div>ol:not([type]) {
-  list-style-type: decimal;
-}
+/*.markdown-body div>ol:not([type]) {*/
+/*  list-style-type: decimal;*/
+/*}*/
 
 .markdown-body ul ul,
 .markdown-body ul ol,
@@ -1068,9 +1018,9 @@
 /*  height: 1em;*/
 /*}*/
 
-.markdown-body .task-list-item {
-  list-style-type: none;
-}
+/*.markdown-body .task-list-item {*/
+/*  list-style-type: none;*/
+/*}*/
 
 .markdown-body .task-list-item label {
   /*font-weight: var(--base-text-weight-normal, 400);*/
