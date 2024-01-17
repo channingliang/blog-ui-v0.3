@@ -19,7 +19,7 @@ import NextLink from "next/link";
 import clsx from "clsx";
 import { ThemeSwitch } from "@/components/theme-switch";
 import React, { useState } from "react";
-import { AccountBox, Search } from "@mui/icons-material";
+import { CircleUserRound, Search } from "lucide-react";
 
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -78,7 +78,7 @@ export const Navbar = () => {
                 </NavbarItem>
                 <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
                 <NavbarItem className="hidden sm:flex">
-                    <Button variant="ghost">
+                    <Button variant="ghost" aria-label={"login"}>
                         登录
                     </Button>
                 </NavbarItem>
@@ -86,10 +86,10 @@ export const Navbar = () => {
                     <Button
                         isIconOnly
                         variant={"light"}
-                        title={"切换主题"}
-                        aria-label={"theme switch"}
+                        title={"登录"}
+                        aria-label={"login"}
                     >
-                        <AccountBox />
+                        <CircleUserRound />
                     </Button>
                 </NavbarItem>
             </NavbarContent>

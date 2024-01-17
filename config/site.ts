@@ -10,7 +10,7 @@ export const siteConfig = {
         },
 		{
 			label: "博文",
-			href: "/posts",
+			href: "/posts?page=1",
 		},
         {
             label: "照片",
@@ -20,44 +20,9 @@ export const siteConfig = {
             label: "留言板",
             href: "/forum",
         },
-
         {
             label: "关于我",
             href: "/about",
         }
-    ],
-    navMenuItems: [
-        {
-            label: "Profile",
-            href: "/profile",
-        },
-        {
-            label: "Dashboard",
-            href: "/dashboard",
-        },
-        {
-            label: "Projects",
-            href: "/projects",
-        },
-        {
-            label: "Team",
-            href: "/team",
-        },
-        {
-            label: "Calendar",
-            href: "/calendar",
-        },
-        {
-            label: "Settings",
-            href: "/settings",
-        },
-        {
-            label: "Help & Feedback",
-            href: "/help-feedback",
-        },
-        {
-            label: "Logout",
-            href: "/logout",
-        },
     ],
 };

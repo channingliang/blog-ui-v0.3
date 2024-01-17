@@ -1,7 +1,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Button } from "@nextui-org/button";
-import { DarkMode, LightMode } from "@mui/icons-material";
+import { MoonStar, Sun } from "lucide-react";
 
 export function ThemeSwitch() {
 	const [mounted, setMounted] = useState(false);
@@ -33,7 +33,7 @@ export function ThemeSwitch() {
 					setTheme(theme === "dark" ? "light" : "dark");
 				}}
 			>
-				{theme === "light" ? <LightMode /> : <DarkMode />}
+				{theme === "light" ? <Sun /> : <MoonStar />}
 			</Button>
 		</div>
 	);

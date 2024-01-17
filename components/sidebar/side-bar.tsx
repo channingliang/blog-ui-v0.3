@@ -4,7 +4,7 @@ import TitledDiv from "@/components/sidebar/titled-div";
 import Runtime from "@/components/sidebar/run-time";
 import React from "react";
 import InfoCard from "@/components/sidebar/info-card";
-import { Article, Bookmark, Comment, Favorite, Photo } from "@mui/icons-material";
+import { Activity, ImageIcon, Library, Tag, MessageSquare } from "lucide-react";
 
 export default function SideBar({ blogData }: { blogData: BlogData }) {
     return (
@@ -28,7 +28,7 @@ export default function SideBar({ blogData }: { blogData: BlogData }) {
                 </div>
                 <div className="h-12 flex items-center">
                     <TitledDiv title={"已熬夜"} className={"p-4"}>
-                        <Runtime className={"text-sm md:w-auto w-full mx-2"}/>
+                        <Runtime className={"text-sm md:w-auto w-full mr-2"}/>
                     </TitledDiv>
                 </div>
                 <div className="h-12 flex items-center w-full md:w-auto">
@@ -45,23 +45,23 @@ export default function SideBar({ blogData }: { blogData: BlogData }) {
                     title={"本站数据"}
                     className={"sticky top-0 flex flex-wrap md:grid md:grid-cols-2 gap-4 p-4 w-full"}>
                     <InfoCard
-                        IconComponent={Article}
+                        IconComponent={Library}
                         mainText={"记录 " + blogData.articleCount + " 篇"}
                         secondaryText="博文"/>
                     <InfoCard
-                        IconComponent={Photo}
+                        IconComponent={ImageIcon}
                         mainText={"上传 " + blogData.photoCount + " 张"}
                         secondaryText="照片"/>
                     <InfoCard
-                        IconComponent={Favorite}
+                        IconComponent={Activity}
                         mainText={"发布 " + blogData.journalCount + " 次"}
                         secondaryText="动态"/>
                     <InfoCard
-                        IconComponent={Bookmark}
+                        IconComponent={Tag}
                         mainText={"添加 " + blogData.tagCount + " 个"}
                         secondaryText="标签"/>
                     <InfoCard
-                        IconComponent={Comment}
+                        IconComponent={MessageSquare}
                         mainText={"收集 " + blogData.commentCount + " 条"}
                         secondaryText="评论"/>
                 </TitledDiv>

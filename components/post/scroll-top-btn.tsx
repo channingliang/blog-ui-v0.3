@@ -1,10 +1,10 @@
 'use client';
 
-import { KeyboardDoubleArrowUp } from "@mui/icons-material";
 import { Button } from "@nextui-org/button";
 import React from "react";
 import { Tooltip } from "@nextui-org/react";
 import { OverlayPlacement } from "@nextui-org/aria-utils";
+import { ArrowBigUpDash } from "lucide-react";
 
 const scrollTopBtn = ({className, tooltip, variant} : {
     className?: string,
@@ -21,7 +21,7 @@ const scrollTopBtn = ({className, tooltip, variant} : {
                 variant={variant}
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-                <KeyboardDoubleArrowUp />
+                <ArrowBigUpDash />
             </Button>
         </Tooltip>
 

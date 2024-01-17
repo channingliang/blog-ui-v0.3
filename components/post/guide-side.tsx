@@ -1,5 +1,4 @@
 import TitledDiv from "@/components/sidebar/titled-div";
-import { EditCalendar, Restore, AdsClick } from "@mui/icons-material";
 import InfoCard from "@/components/sidebar/info-card";
 import { formatTime, formatTimeZH } from "@/lib/utils";
 import { Chip } from "@nextui-org/react";
@@ -7,6 +6,7 @@ import Toc from "@/components/post/toc";
 import React from "react";
 import ScrollTopBtn from "@/components/post/scroll-top-btn";
 import ScrollEndBtn from "@/components/post/scroll-end-btn";
+import { CalendarCheck2, FilePenLine, MousePointerClick } from "lucide-react";
 
 export default function GuideSide({post}: { post: PostData }) {
     return (
@@ -17,13 +17,13 @@ export default function GuideSide({post}: { post: PostData }) {
                         <h2>{post.subtitle}</h2>
                     </TitledDiv>
                     <TitledDiv title={"博文信息"} className={"p-4"}>
-                        <div className={"grid grid-cols-1 gap-2"}>
-                            <InfoCard IconComponent={EditCalendar}
+                        <div className={"grid grid-cols-1 gap-4"}>
+                            <InfoCard IconComponent={CalendarCheck2}
                                       mainText={"发布于 " + formatTimeZH(post.createTime)}/>
                             {post.editTime &&
-                              <InfoCard IconComponent={Restore} mainText={"编辑于 " + formatTimeZH(post.editTime)}/>
+                              <InfoCard IconComponent={FilePenLine} mainText={"编辑于 " + formatTimeZH(post.editTime)}/>
                             }
-                            <InfoCard IconComponent={AdsClick} mainText={"浏览量 " + post.viewCount}/>
+                            <InfoCard IconComponent={MousePointerClick} mainText={"浏览量 " + post.viewCount}/>
                         </div>
                     </TitledDiv>
                     <TitledDiv title={"标签"} className={"p-4 flex flex-wrap gap-1"}>

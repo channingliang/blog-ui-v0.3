@@ -11,8 +11,8 @@ import React from "react";
 import ScrollTopBtn from "@/components/post/scroll-top-btn";
 import ScrollEndBtn from "@/components/post/scroll-end-btn";
 import { Button } from "@nextui-org/button";
-import { Toc as TocIcon } from "@mui/icons-material";
 import Toc from "@/components/post/toc";
+import { ListTree } from "lucide-react";
 
 export default function GuideFixed({content}: { content: string }) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -25,7 +25,7 @@ export default function GuideFixed({content}: { content: string }) {
                 onOpenChange={onOpenChange}
                 scrollBehavior={"inside"}
             >
-                <ModalContent className={"max-h-[60vh]"}>
+                <ModalContent className={"max-h-[50vh] sm:max-h-[80vh]"}>
                     {(onClose) => (
                         <>
                             <ModalHeader>目录</ModalHeader>
@@ -46,7 +46,7 @@ export default function GuideFixed({content}: { content: string }) {
                 variant={"ghost"}
                 onPress={onOpen}
             >
-                <TocIcon />
+                <ListTree />
             </Button>
             <ScrollTopBtn className={"text-foreground"} tooltip={"left"} variant={"ghost"}/>
             <ScrollEndBtn className={"text-foreground"} id={"postNav"} tooltip={"left"} variant={"ghost"}/>

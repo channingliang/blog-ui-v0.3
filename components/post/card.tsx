@@ -1,13 +1,9 @@
-// 'use client';
-
 import React from 'react';
 import Image from "next/image";
 import { Card, CardHeader, CardFooter, Link } from "@nextui-org/react";
-import { AccessTime, AdsClick } from "@mui/icons-material";
 import cover from "@/public/assets/default-bg.jpg";
 import { formatTime } from "@/lib/utils";
-import { useRouter } from "next/navigation";
-import NextLink from "next/link";
+import { CalendarDays, MousePointerClick } from "lucide-react";
 
 export default function PostCard({ post }: { post: PostsData }) {
 
@@ -39,11 +35,11 @@ export default function PostCard({ post }: { post: PostsData }) {
                 <div className="flex flex-grow gap-2 items-center">
                     <div className="flex gap-2">
                         <div className="text-tiny text-white/60 flex items-center">
-                            <AccessTime sx={{fontSize: 16}} className={"mr-1"}/>
+                            <CalendarDays size={16} className={"mr-1"}/>
                             {formatTime(post.createTime)}
                         </div>
                         <div className="text-tiny text-white/60 flex items-center">
-                            <AdsClick sx={{fontSize: 16}} className={"mr-1"}/>
+                            <MousePointerClick size={16} className={"mr-1"}/>
                             {post.viewCount}
                         </div>
                     </div>

@@ -1,10 +1,10 @@
 'use client';
 
-import { KeyboardDoubleArrowDown } from "@mui/icons-material";
 import { Button } from "@nextui-org/button";
 import React from "react";
 import { Tooltip } from "@nextui-org/react";
 import { OverlayPlacement } from "@nextui-org/aria-utils";
+import { ArrowBigDownDash } from "lucide-react";
 
 const scrollPostEndBtn = ({id, className, tooltip, variant} : {
     id: string,
@@ -28,7 +28,7 @@ const scrollPostEndBtn = ({id, className, tooltip, variant} : {
                         }
                     }}
             >
-                <KeyboardDoubleArrowDown />
+                <ArrowBigDownDash />
             </Button>
         </Tooltip>
     )

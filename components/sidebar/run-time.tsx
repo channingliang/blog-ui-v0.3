@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
-import { Circle } from "@mui/icons-material";
+import { Circle } from "lucide-react";
 
 dayjs.extend(duration);
 
@@ -42,12 +42,11 @@ const RunTime :React.FC<RuntimeProps> = ({ className }) => {
 
     return (
         <div className={`flex items-center ${className}`}>
-            <Circle sx={{ fontSize: 8 }} className={`${blink ? 'opacity-100' : 'opacity-0'} text-green-500 mr-2`} />
+            <Circle size={12} strokeWidth={3} className={`${blink ? 'opacity-100' : 'opacity-0'} mr-2 text-green-500`} />
             <p>
                 {years > 0 && <span>{years} 年&nbsp;</span>}
                 {months} 月 {days} 天 {hours} 小时 {minutes} 分钟
             </p>
-
         </div>
     );
 };
