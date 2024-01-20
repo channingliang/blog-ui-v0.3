@@ -1,6 +1,15 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/home',
+        permanent: true,
+      },
+    ]
+  },
   i18n: {
     locales: ['zh', 'en'],
     defaultLocale: 'zh',
@@ -9,10 +18,16 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'img.stayuplate.icu',
+        hostname: 'pic.stayuplate.icu',
         port: '',
-        pathname: '/i/**',
+        pathname: '/**/**',
       },
+      // {
+      //   protocol: 'https',
+      //   hostname: 'pic.stayuplate.icu',
+      //   port: '',
+      //   pathname: '/image/**',
+      // },
     ],
   },
 }

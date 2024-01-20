@@ -33,7 +33,7 @@ const extractHeadings = (content: string): Heading[] => {
             id = `heading-${h2Counter}-${h3Counter}`;
         } else if (level === 4) {
             h4Counter++;
-            id = `heading-${h2Counter}-${h3Counter}-1`;
+            id = `heading-${h2Counter}-${h3Counter}-${h4Counter}`;
         }
 
         const newHeading: Heading = { level, text, id };
@@ -65,11 +65,12 @@ const extractHeadings = (content: string): Heading[] => {
 
         }
     }
+
     return headings;
 };
 
 const scrollToHeading = (id: string, action?: () => void) => {
-    const headingElement = document.getElementById(id.toLowerCase());
+    const headingElement = document.getElementById(id);
     if (headingElement) {
         const offset = 80;
         const bodyRect = document.body.getBoundingClientRect().top;

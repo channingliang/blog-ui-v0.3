@@ -6,7 +6,7 @@ export const siteConfig = {
     navItems: [
         {
             label: "主页",
-            href: "/",
+            href: "/home",
         },
 		{
 			label: "博文",
