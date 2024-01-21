@@ -1,10 +1,12 @@
 import React from "react";
 import { ApiService } from "@/lib/apiService";
-import { BreadcrumbItemProps, Card, CardFooter, Link, Image } from "@nextui-org/react";
+import { BreadcrumbItemProps, Card, CardFooter, Link, Image, Chip } from "@nextui-org/react";
 import Markdown from "@/components/post/markdown";
 import IBreadcrumbs from "@/components/breadcrumbs";
 import GuideSide from "@/components/post/guide-side";
 import GuideFixed from "@/components/post/guide-fixed";
+import { formatTimeZH } from "@/lib/utils";
+import { CalendarCheck2, FilePenLine, MousePointerClick } from "lucide-react";
 
 export default async function PostPage({ params }: { params: { id: string } }) {
 	const postId = params.id;
@@ -51,6 +53,38 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 						</div>
 					</CardFooter>
 				</Card>
+				<div className={"flex flex-col gap-2 lg:hidden border-2 rounded-xl my-4 p-4"}>
+					<div className={"text-lg flex items-center"}>
+						<MousePointerClick size={"1rem"}/><span className={"text-xs"}>{postData.viewCount}</span>
+						<span className={"ml-3"}>{postData.subtitle}</span>
+					</div>
+					<div className={"flex"}>
+						<span className={"flex items-center text-sm text-foreground/50"}>
+							<CalendarCheck2 className={"mr-1"} size={"1rem"} />{formatTimeZH(postData.createTime)}
+						</span>
+						{postData.editTime && <span
+							className={"flex items-center text-sm text-foreground/50 ml-3"}>
+							<FilePenLine className={"mr-1"} size={"1rem"} /> {formatTimeZH(postData.editTime)}
+						</span>
+						}
+					</div>
+					<div className={"flex flex-wrap gap-1"}>
+						{postData.tags && postData.tags.length > 0 ? (
+							postData.tags.map((tag, index) => (
+								<Chip
+									className={"rounded-xl text-[.8rem]"}
+									key={index}
+									color="primary"
+									variant="dot"
+								>
+									{tag.name}
+								</Chip>
+							))
+						) : (
+							<p className={"text-small text-white/50"}>-未添加标签-</p>
+						)}
+					</div>
+				</div>
 				<div className={"my-4"}>
 					<Markdown content={postData.content}/>
 				</div>

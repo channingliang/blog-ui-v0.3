@@ -16,10 +16,10 @@ export const siteConfig = {
             label: "照片",
             href: "/images?page=1",
         },
-        {
-            label: "留言板",
-            href: "/forum",
-        },
+        // {
+        //     label: "留言板",
+        //     href: "/forum",
+        // },
         {
             label: "关于我",
             href: "/about",

@@ -25,7 +25,7 @@ export default function GuideFixed({content}: { content: string }) {
                 onOpenChange={onOpenChange}
                 scrollBehavior={"inside"}
             >
-                <ModalContent className={"max-h-[50vh] sm:max-h-[80vh]"}>
+                <ModalContent className={"max-h-[60vh] sm:max-h-[80vh]"}>
                     {(onClose) => (
                         <>
                             <ModalHeader>目录</ModalHeader>

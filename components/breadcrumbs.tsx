@@ -11,7 +11,7 @@ const IBreadcrumbs = ({ size, items }: BreadcrumbProps) => {
     return (
         <Breadcrumbs size={size} underline={"hover"}>
             {items.map((item, index) => (
-                <BreadcrumbItem key={index} href={item.href} isDisabled={item.isDisabled}>
+                <BreadcrumbItem className={"overflow-auto"} key={index} href={item.href} isDisabled={item.isDisabled}>
                     {item.children}
                 </BreadcrumbItem>
             ))}

@@ -77,21 +77,21 @@ export const Navbar = () => {
                     <ThemeSwitch />
                 </NavbarItem>
                 <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
-                <NavbarItem className="hidden sm:flex">
-                    <Button variant="ghost" aria-label={"login"}>
-                        登录
-                    </Button>
-                </NavbarItem>
-                <NavbarItem className="sm:hidden">
-                    <Button
-                        isIconOnly
-                        variant={"light"}
-                        title={"登录"}
-                        aria-label={"login"}
-                    >
-                        <CircleUserRound />
-                    </Button>
-                </NavbarItem>
+                {/*<NavbarItem className="hidden sm:flex">*/}
+                {/*    <Button variant="ghost" aria-label={"login"}>*/}
+                {/*        登录*/}
+                {/*    </Button>*/}
+                {/*</NavbarItem>*/}
+                {/*<NavbarItem className="sm:hidden">*/}
+                {/*    <Button*/}
+                {/*        isIconOnly*/}
+                {/*        variant={"light"}*/}
+                {/*        title={"登录"}*/}
+                {/*        aria-label={"login"}*/}
+                {/*    >*/}
+                {/*        <CircleUserRound />*/}
+                {/*    </Button>*/}
+                {/*</NavbarItem>*/}
             </NavbarContent>
 
             <NavbarMenu>
