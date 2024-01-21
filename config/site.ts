@@ -14,7 +14,7 @@ export const siteConfig = {
 		},
         {
             label: "照片",
-            href: "/images",
+            href: "/images?page=1",
         },
         {
             label: "留言板",

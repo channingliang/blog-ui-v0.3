@@ -17,8 +17,9 @@ interface TagData {
     name: string;
 }
 
-interface PostsPageData {
-    records: PostsData[];
+type RecordData = PostsData | ImagesData;
+interface PageData {
+    records: RecordData[];
     total: number;
     size: number;
     current: number;
@@ -48,4 +49,13 @@ interface PostData {
     next: PostData;
 }
 
+interface ImagesData {
+    imageId: number;
+    title: string;
+    url: string;
+}
+
+interface ImageData {
+
+}
 
