@@ -1,8 +1,6 @@
 import React from "react";
 import { ApiService } from "@/lib/apiService";
-import Image from "next/image";
-import cover from "@/public/assets/default-bg.jpg";
-import { BreadcrumbItemProps, Card, CardFooter, Link } from "@nextui-org/react";
+import { BreadcrumbItemProps, Card, CardFooter, Link, Image } from "@nextui-org/react";
 import Markdown from "@/components/post/markdown";
 import IBreadcrumbs from "@/components/breadcrumbs";
 import GuideSide from "@/components/post/guide-side";
@@ -39,12 +37,9 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 					shadow={"sm"}
 				>
 					<Image
-						className="z-0 w-full h-full object-cover"
-						src={postData.coverUrl ? postData.coverUrl : cover}
 						alt="Post cover"
-						priority
-						sizes={"100%"}
-						fill
+						className="z-0 w-full h-full object-cover"
+						src={postData.coverUrl ? postData.coverUrl : "/assets/default-bg.jpg"}
 					/>
 					<CardFooter
 						className="absolute bg-background/20 bottom-0 z-10

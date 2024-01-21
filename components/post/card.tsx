@@ -1,7 +1,5 @@
 import React from 'react';
-import Image from "next/image";
-import { Card, CardHeader, CardFooter, Link } from "@nextui-org/react";
-import cover from "@/public/assets/default-bg.jpg";
+import { Card, CardHeader, CardFooter, Link, Image } from "@nextui-org/react";
 import { formatTime } from "@/lib/utils";
 import { CalendarDays, MousePointerClick } from "lucide-react";
 
@@ -20,12 +18,9 @@ export default function PostCard({ post }: { post: PostsData }) {
                 <h4 className="text-white/90 font-bold text-xl text-glow-black">{post.title}</h4>
             </CardHeader>
             <Image
-                className="z-0 w-full h-full object-cover"
-                src={post.coverUrl ? post.coverUrl : cover}
                 alt="Post cover"
-                priority
-                sizes={"100%"}
-                fill
+                className="z-0 w-full h-full object-cover"
+                src={post.coverUrl ? post.coverUrl : "/assets/default-bg.jpg"}
             />
             {/*<div className="absolute inset-0 bg-black/30"></div>*/}
             <CardFooter
