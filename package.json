@@ -22,7 +22,7 @@
     "dayjs": "^1.11.10",
     "eslint": "8.48.0",
     "eslint-config-next": "14.0.2",
-    "framer-motion": "^10.16.4",
+    "framer-motion": "^10.18.0",
     "intl-messageformat": "^10.5.0",
     "lucide-react": "^0.311.0",
     "next": "14.0.2",
