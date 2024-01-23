@@ -21,7 +21,7 @@ export const siteConfig = {
         //     href: "/forum",
         // },
         {
-            label: "关于我",
+            label: "关于",
             href: "/about",
         }
     ],
