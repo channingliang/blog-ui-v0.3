@@ -81,32 +81,15 @@
 }
 
 .intro {
-  @apply flex flex-col sm:grid grid-cols-6 gap-8 items-center justify-center;
+  @apply flex flex-col sm:grid grid-cols-8 gap-4 sm:gap-8 items-center justify-center;
 }
 
 .intro > div {
   @apply w-full h-full border-2 rounded-lg;
 }
 
-@keyframes row-up {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.lean-box {
-  @apply rotate-[-15deg];
-}
-
-.wrapper .icon:nth-child(even) {
-  @apply mt-1 mb-1 translate-x-[-160px];
-}
-
-.animate-row-up {
-  @apply animate-[row-up_15s_linear_infinite];
+.location-icon {
+  @apply bg-primary rounded-full border-4 border-white;
 }
 
 
