@@ -19,7 +19,7 @@ export default function PostCard({ post }: { post: PostsData }) {
             </CardHeader>
             <Image
                 alt="Post cover"
-                className="z-0 w-full h-full object-cover"
+                className="z-0 w-full h-full object-cover rounded-none"
                 src={post.coverUrl ? post.coverUrl : "/assets/default-bg.jpg"}
             />
             {/*<div className="absolute inset-0 bg-black/30"></div>*/}

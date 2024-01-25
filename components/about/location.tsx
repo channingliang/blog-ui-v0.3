@@ -16,9 +16,9 @@ type MapProps = {
     longitude: number;
 };
 
-const MapComponent: React.FC<MapProps> = ({ latitude, longitude }) => {
+const LocationMap: React.FC<MapProps> = ({ latitude, longitude }) => {
     return (
-        <MapContainer className={"z-0"} center={[latitude, longitude]} zoom={13} style={{ height: '250px', width: '100%' }}>
+        <MapContainer className={"z-0 w-full h-full"} center={[latitude, longitude]} zoom={13}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -28,4 +28,4 @@ const MapComponent: React.FC<MapProps> = ({ latitude, longitude }) => {
     );
 };
 
-export default MapComponent;
+export default LocationMap;

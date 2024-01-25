@@ -85,11 +85,23 @@
 }
 
 .intro > div {
-  @apply w-full h-full border-2 rounded-lg;
+  @apply w-full sm:h-full border-2 rounded-xl;
+}
+
+.intro .hello {
+  font-weight: 700;
+}
+
+.intro .emphasis {
+  @apply text-3xl font-bold text-primary mx-2;
+}
+
+.intro .sub-emphasis {
+  @apply text-xl font-bold mx-1;
 }
 
 .location-icon {
-  @apply bg-primary rounded-full border-4 border-white;
+  @apply bg-primary rounded-full border-4 border-black/70;
 }
 
 
