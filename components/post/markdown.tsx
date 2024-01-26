@@ -7,7 +7,7 @@ import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { visit } from "unist-util-visit";
 import { Link } from "@nextui-org/link";
-import { Link as LinkIcon } from "lucide-react";
+import { LuLink } from "react-icons/lu";
 
 function customSlug() {
     return (tree: any) => {
@@ -55,7 +55,7 @@ export default function Markdown({ content }: { content: string }) {
                             isExternal
                             showAnchorIcon
                             href={rest.href}
-                            anchorIcon={<LinkIcon className={"ml-[1px]"} size={".9rem"} />}
+                            anchorIcon={<LuLink className={"ml-[1px]"} size={".9rem"} />}
                         >
                             {children}
                         </Link>

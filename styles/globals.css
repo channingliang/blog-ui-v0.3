@@ -35,8 +35,14 @@
   background: transparent; /* 轨道颜色 */
 }
 
+::-webkit-scrollbar-button {
+  width: .5rem;
+  height: .5rem;
+}
+
 /* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
+  margin-top: 5px;
   background: #888; /* 滑块颜色 */
   border-radius: 4px; /* 滑块圆角 */
 }
@@ -102,6 +108,10 @@
 
 .location-icon {
   @apply bg-primary rounded-full border-4 border-black/70;
+}
+
+.footer {
+  @apply text-[.8rem] text-foreground/40;
 }
 
 

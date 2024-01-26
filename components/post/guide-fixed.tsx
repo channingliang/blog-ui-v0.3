@@ -12,7 +12,8 @@ import ScrollTopBtn from "@/components/post/scroll-top-btn";
 import ScrollEndBtn from "@/components/post/scroll-end-btn";
 import { Button } from "@nextui-org/button";
 import Toc from "@/components/post/toc";
-import { ListTree } from "lucide-react";
+import { LuListTree } from "react-icons/lu";
+import { MyIcon } from "@/components/my-icon";
 
 export default function GuideFixed({content}: { content: string }) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -46,7 +47,7 @@ export default function GuideFixed({content}: { content: string }) {
                 variant={"ghost"}
                 onPress={onOpen}
             >
-                <ListTree />
+                <MyIcon icon={LuListTree} size={20}/>
             </Button>
             <ScrollTopBtn className={"text-foreground"} tooltip={"left"} variant={"ghost"}/>
             <ScrollEndBtn className={"text-foreground"} id={"postNav"} tooltip={"left"} variant={"ghost"}/>

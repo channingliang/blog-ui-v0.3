@@ -4,7 +4,7 @@ import TitledDiv from "@/components/sidebar/titled-div";
 import Runtime from "@/components/sidebar/run-time";
 import React from "react";
 import InfoCard from "@/components/sidebar/info-card";
-import { Activity, ImageIcon, Library, Tag, MessageSquare } from "lucide-react";
+import { LuActivity, LuImage, LuLibrary, LuTag, LuMessageSquare } from "react-icons/lu";
 
 export default function SideBar({ blogData }: { blogData: BlogData }) {
     return (
@@ -45,25 +45,25 @@ export default function SideBar({ blogData }: { blogData: BlogData }) {
                     title={"本站数据"}
                     className={"sticky top-0 flex flex-wrap md:grid md:grid-cols-2 gap-4 p-4 w-full"}>
                     <InfoCard
-                        IconComponent={Library}
+                        icon={LuLibrary}
                         mainText={"记录 " + blogData.articleCount + " 篇"}
-                        secondaryText="博文"/>
+                        greyText="博文"/>
                     <InfoCard
-                        IconComponent={ImageIcon}
+                        icon={LuImage}
                         mainText={"上传 " + blogData.photoCount + " 张"}
-                        secondaryText="照片"/>
+                        greyText="照片"/>
                     <InfoCard
-                        IconComponent={Activity}
+                        icon={LuActivity}
                         mainText={"发布 " + blogData.journalCount + " 次"}
-                        secondaryText="动态"/>
+                        greyText="动态"/>
                     <InfoCard
-                        IconComponent={Tag}
+                        icon={LuTag}
                         mainText={"添加 " + blogData.tagCount + " 个"}
-                        secondaryText="标签"/>
+                        greyText="标签"/>
                     <InfoCard
-                        IconComponent={MessageSquare}
+                        icon={LuMessageSquare}
                         mainText={"收集 " + blogData.commentCount + " 条"}
-                        secondaryText="评论"/>
+                        greyText="评论"/>
                 </TitledDiv>
                 <TitledDiv
                     title={"近期更新"}

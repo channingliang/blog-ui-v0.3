@@ -4,7 +4,8 @@ import { Button } from "@nextui-org/button";
 import React from "react";
 import { Tooltip } from "@nextui-org/react";
 import { OverlayPlacement } from "@nextui-org/aria-utils";
-import { ArrowBigDownDash } from "lucide-react";
+import { LuArrowBigDownDash } from "react-icons/lu";
+import { MyIcon } from "@/components/my-icon";
 
 const scrollPostEndBtn = ({id, className, tooltip, variant} : {
     id: string,
@@ -28,7 +29,7 @@ const scrollPostEndBtn = ({id, className, tooltip, variant} : {
                         }
                     }}
             >
-                <ArrowBigDownDash />
+                <MyIcon icon={LuArrowBigDownDash} size={20} />
             </Button>
         </Tooltip>
     )

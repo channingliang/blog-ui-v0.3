@@ -18,3 +18,13 @@ export function calculateAge(): number {
     return now.diff(birth, 'year');
 }
 
+export function calculateSteamAge(): string {
+    const now = dayjs();
+    const steamLaunchDate = dayjs("2016-08-16");
+
+    const years = now.diff(steamLaunchDate, 'year');
+    const months = now.subtract(years, 'year').diff(steamLaunchDate, 'month');
+    const fractionalYear = months / 12;
+    const totalYears = years + fractionalYear;
+    return totalYears.toFixed(1);
+}

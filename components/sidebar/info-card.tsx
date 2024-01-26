@@ -1,19 +1,21 @@
 import React, { FC } from 'react';
+import { MyIcon } from "@/components/my-icon";
+import { IconType } from "react-icons";
 
 interface InfoCardProps {
-    IconComponent: FC;
+    icon: IconType;
     mainText: string;
-    secondaryText?: string;
+    greyText?: string;
 }
 
-const InfoCard: FC<InfoCardProps> = ({ IconComponent, mainText, secondaryText }) => {
+const InfoCard: FC<InfoCardProps> = ({ icon, mainText, greyText }) => {
     return (
         <div className="flex-auto md:flex-none md:col-span-1">
             <div className="flex items-center gap-1">
-                <IconComponent />
+                <MyIcon icon={icon} />
                 <div className="ml-1 flex flex-col">
                     <div className="text-sm">{mainText}</div>
-                    <div className="text-sm text-default-500">{secondaryText}</div>
+                    <div className="text-sm text-default-500">{greyText}</div>
                 </div>
             </div>
         </div>

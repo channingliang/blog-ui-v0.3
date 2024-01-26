@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card, CardHeader, CardFooter, Link, Image } from "@nextui-org/react";
 import { formatTime } from "@/lib/utils";
-import { CalendarDays, MousePointerClick } from "lucide-react";
+import { LuCalendarDays, LuMousePointerClick } from "react-icons/lu";
+import { MyIcon } from "@/components/my-icon";
 
 export default function PostCard({ post }: { post: PostsData }) {
 
@@ -27,17 +28,11 @@ export default function PostCard({ post }: { post: PostsData }) {
                 className="absolute bg-white/10 dark:bg-black/70 bottom-0 z-10
                  border-t-1 border-white/30 dark:border-default-100"
             >
-                <div className="flex flex-grow gap-2 items-center">
-                    <div className="flex gap-2">
-                        <div className="text-tiny text-white/60 flex items-center">
-                            <CalendarDays size={16} className={"mr-1"}/>
-                            {formatTime(post.createTime)}
-                        </div>
-                        <div className="text-tiny text-white/60 flex items-center">
-                            <MousePointerClick size={16} className={"mr-1"}/>
-                            {post.viewCount}
-                        </div>
-                    </div>
+                <div className="flex flex-wrap gap-4 items-center text-tiny text-white/60">
+                    <MyIcon icon={LuCalendarDays} className={"-mr-2"}/>
+                    <span>{formatTime(post.createTime)}</span>
+                    <MyIcon icon={LuMousePointerClick} className={"-mr-2"}/>
+                    <span>{post.viewCount}</span>
                 </div>
             </CardFooter>
         </Card>

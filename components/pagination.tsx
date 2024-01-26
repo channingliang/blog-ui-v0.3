@@ -4,7 +4,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { Pagination } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 
-
 export default function IPagination({ path, totalPages }: { path: string, totalPages: number }) {
     const router = useRouter();
     const searchParams = useSearchParams();

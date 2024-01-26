@@ -6,7 +6,8 @@ import IBreadcrumbs from "@/components/breadcrumbs";
 import GuideSide from "@/components/post/guide-side";
 import GuideFixed from "@/components/post/guide-fixed";
 import { formatTimeZH } from "@/lib/utils";
-import { CalendarCheck2, FilePenLine, MousePointerClick } from "lucide-react";
+import { LuCalendarCheck2, LuPenLine, LuMousePointerClick } from "react-icons/lu";
+import { MyIcon } from "@/components/my-icon";
 
 export default async function PostPage({ params }: { params: { id: string } }) {
 	const postId = params.id;
@@ -55,16 +56,16 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 				</Card>
 				<div className={"flex flex-col gap-2 lg:hidden border-2 rounded-xl my-4 p-4"}>
 					<div className={"text-lg flex items-center"}>
-						<MousePointerClick size={"1rem"}/><span className={"text-xs"}>{postData.viewCount}</span>
+						<MyIcon icon={LuMousePointerClick} /><span className={"text-xs"}>{postData.viewCount}</span>
 						<span className={"ml-3"}>{postData.subtitle}</span>
 					</div>
-					<div className={"flex"}>
+					<div className={"flex flex-wrap gap-2 sm:gap-4"}>
 						<span className={"flex items-center text-sm text-foreground/50"}>
-							<CalendarCheck2 className={"mr-1"} size={"1rem"} />{formatTimeZH(postData.createTime)}
+							<MyIcon icon={LuCalendarCheck2} className={"mr-1"} />{formatTimeZH(postData.createTime)}
 						</span>
 						{postData.editTime && <span
-							className={"flex items-center text-sm text-foreground/50 ml-3"}>
-							<FilePenLine className={"mr-1"} size={"1rem"} /> {formatTimeZH(postData.editTime)}
+							className={"flex items-center text-sm text-foreground/50"}>
+							<MyIcon icon={LuPenLine} className={"mr-1"} /> {formatTimeZH(postData.editTime)}
 						</span>
 						}
 					</div>
@@ -88,7 +89,7 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 				<div className={"my-4"}>
 					<Markdown content={postData.content}/>
 				</div>
-				<div id={"postNav"} className={"border-2 rounded-xl p-4 flex items-center justify-between"}>
+				<div id={"postNav"} className={"border-2 rounded-xl p-4 flex flex-wrap items-center justify-between gap-2"}>
 					{postData.prev ?
 						<div>
 							<span className={"text-small"}>上一篇：</span>

@@ -4,7 +4,8 @@ import { Button } from "@nextui-org/button";
 import React from "react";
 import { Tooltip } from "@nextui-org/react";
 import { OverlayPlacement } from "@nextui-org/aria-utils";
-import { ArrowBigUpDash } from "lucide-react";
+import { LuArrowBigUpDash } from "react-icons/lu";
+import { MyIcon } from "@/components/my-icon";
 
 const scrollTopBtn = ({className, tooltip, variant} : {
     className?: string,
@@ -21,7 +22,7 @@ const scrollTopBtn = ({className, tooltip, variant} : {
                 variant={variant}
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-                <ArrowBigUpDash />
+                <MyIcon icon={LuArrowBigUpDash} size={20 }/>
             </Button>
         </Tooltip>
 

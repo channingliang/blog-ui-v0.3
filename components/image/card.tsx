@@ -32,10 +32,8 @@ export default function ImageCard({ image, onClick }: { image: ImageData, onClic
                     className="absolute bg-white/10 dark:bg-black/70 bottom-0 z-10
                  border-t-1 border-white/30 dark:border-default-100 p-2 px-4"
                 >
-                    <div className="flex flex-grow gap-2 items-center">
-                        <div className="flex uppercase text-small text-clip text-white">
-                            {image.title}
-                        </div>
+                    <div className="uppercase text-start text-white text-small">
+                        {image.title}
                     </div>
                 </CardFooter>
             </Card>
