@@ -11,7 +11,7 @@ interface Heading {
 }
 
 const extractHeadings = (content: string): Heading[] => {
-    const regex = /^(\#{2,4})\s+(.+)$/gm;
+    const regex = /^(#{2,4})\s+(.+)$/gm;
     let matches;
     let headings: Heading[] = [];
     let h2Counter = 0, h3Counter = 0, h4Counter = 0;
@@ -103,8 +103,8 @@ const Toc = ({ content, action }: { content: string, action?: () => void }) => {
             <li key={'h4' + index} className={"my-2"}>
                 <Link
                     href={"#"}
-                    className={"text-large font-bold hover:text-primary"}
-                    color={"foreground"}
+                    className={"text-large font-bold text-foreground hover:text-primary"}
+                    border={"foreground"}
                     underline="hover"
                     onClick={(e) => handleLinkClick(e, heading.id)}
                 >
@@ -116,7 +116,8 @@ const Toc = ({ content, action }: { content: string, action?: () => void }) => {
                             <li key={'h4' + subIndex} className={"text-small ml-6 my-2"}>
                                 <Link
                                     href={`#`}
-                                    color={"foreground"}
+                                    className={"text-foreground"}
+                                    border={"foreground"}
                                     underline="hover"
                                     onClick={
                                         (e) => handleLinkClick(e, subHeading.id)
@@ -130,7 +131,8 @@ const Toc = ({ content, action }: { content: string, action?: () => void }) => {
                                             <li key={'h4' + subSubIndex} className={"text-small ml-6 my-2"}>
                                                 <Link
                                                     href={`#`}
-                                                    color={"foreground"}
+                                                    className={"text-foreground"}
+                                                    border={"foreground"}
                                                     underline="hover"
                                                     onClick={
                                                         (e) =>

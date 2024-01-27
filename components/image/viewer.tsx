@@ -8,8 +8,9 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/plugins/captions.css";
 import { formatTime } from "@/lib/utils";
-import { CalendarCheck2, FilePenLine, PanelBottomClose, PanelBottomOpen, X, ZoomIn, ZoomOut } from "lucide-react";
-import { Tooltip } from "@nextui-org/react";
+import { MyIcon } from "@/components/my-icon";
+import { LuCalendarCheck2, LuPenLine, LuPanelBottomClose, LuPanelBottomOpen, LuX, LuZoomIn, LuZoomOut } from "react-icons/lu";
+import { Divider, Tooltip } from "@nextui-org/react";
 
 const Viewer = ({images}: { images: ImageData[] }) => {
     const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -20,19 +21,21 @@ const Viewer = ({images}: { images: ImageData[] }) => {
     const generateCaption = (image: ImageData) => {
         return (
             <div className={"flex flex-col gap-2"}>
-                <div className={"flex flex-row gap-2 justify-between items-center"}>
+                <div className={"flex flex-wrap gap-2 justify-between items-center"}>
                     <div className={"text-xl sm:text-2xl font-bold uppercase"}>
                         {image.title}
                     </div>
-
-                    <div className={"text-sm text-white/60 inline-flex items-center"}>
-                        <CalendarCheck2 className={"mr-1"} size={"1rem"}/>
-                        <span>{formatTime(image.createTime)}</span>
+                    <div className={"flex flex-wrap items-center gap-2 sm:gap-4 text-sm text-white/60"}>
+                        <p className={"flex items-center gap-1"}>
+                            <MyIcon icon={LuCalendarCheck2}/>
+                            {formatTime(image.createTime)}
+                        </p>
                         {
                             image.editTime &&
-                          <Tooltip content={"更新于 " + formatTime(image.editTime)}>
-                            <FilePenLine className={"ml-2 text-primary"} size={"1rem"}/>
-                          </Tooltip>
+                          <p className={"flex items-center gap-1"}>
+                            <MyIcon icon={LuPenLine}/>
+                              {formatTime(image.editTime)}
+                          </p>
                         }
 
                     </div>
@@ -61,11 +64,11 @@ const Viewer = ({images}: { images: ImageData[] }) => {
                 captions={{ showToggle }}
                 zoom={{ ref: zoomRef }}
                 render={{
-                    iconClose: () => <X />,
-                    iconZoomIn: () => <ZoomIn />,
-                    iconZoomOut: () => <ZoomOut />,
-                    iconCaptionsHidden: () => <PanelBottomOpen />,
-                    iconCaptionsVisible: () => <PanelBottomClose />,
+                    iconClose: () => <MyIcon icon={LuX} size={20} />,
+                    iconZoomIn: () => <MyIcon icon={LuZoomIn} size={20} />,
+                    iconZoomOut: () => <MyIcon icon={LuZoomOut} size={20} />,
+                    iconCaptionsHidden: () => <MyIcon icon={LuPanelBottomOpen} size={20} />,
+                    iconCaptionsVisible: () => <MyIcon icon={LuPanelBottomClose} size={20} />,
                 }}
             />
             <div className={"w-full gap-4 columns-1 sm:columns-2 md:columns-3 lg:columns-4 "}>
