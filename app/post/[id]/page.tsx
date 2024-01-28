@@ -22,7 +22,7 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 	}
 
 	const data: ApiData = await getData();
-	const postData: PostData = data.data;
+	const postData: PostDetail = data.data;
 
 	const breadcrumbItems: BreadcrumbItemProps[] = [
 		{ href: "/posts", children: "博文" },

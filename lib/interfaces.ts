@@ -4,12 +4,19 @@ interface ApiData {
     data: any;
 }
 
-interface BlogData {
-    articleCount: number;
-    photoCount: number;
+interface ContentStat {
+    postCount: number;
+    imageCount: number;
     tagCount: number;
-    journalCount: number;
+    momentCount: number;
     commentCount: number;
+}
+
+interface RecentContent {
+    addedPost: PostPageView;
+    addedImages: ImagePageView[];
+    editedPost: PostPageView;
+    editedImages: ImagePageView[];
 }
 
 interface TagData {
@@ -17,7 +24,7 @@ interface TagData {
     name: string;
 }
 
-type RecordData = PostsData | ImageData;
+type RecordData = PostPageView | ImagePageView;
 interface PageData {
     records: RecordData[];
     total: number;
@@ -26,7 +33,7 @@ interface PageData {
     pages: number;
 }
 
-interface PostsData {
+interface PostPageView {
     postId: number;
     title: string;
     subtitle: string;
@@ -35,7 +42,7 @@ interface PostsData {
     viewCount: number;
 }
 
-interface PostData {
+interface PostDetail {
     postId: number;
     title: string;
     subtitle: string;
@@ -45,11 +52,11 @@ interface PostData {
     editTime: string;
     viewCount: number;
     tags: TagData[];
-    prev: PostData;
-    next: PostData;
+    prev: PostDetail;
+    next: PostDetail;
 }
 
-interface ImageData {
+interface ImagePageView {
     imageId: number;
     title: string;
     content: string;

@@ -4,12 +4,21 @@ import Sidebar from "@/components/sidebar/side-bar";
 
 export default async function RootLayout({children}: { children: React.ReactNode }) {
 	const api = new ApiService();
-	async function getData() {
-		const res = await api.get('https://www.stayuplate.icu/api/general/info');
+	async function getContentStat() {
+		const res = await api.get('http://localhost:10321/stat/content', { cache: "no-store" });
 		return await res.json();
 	}
-	const data: ApiData = await getData();
-	const blogData: BlogData = data.data;
+	async function getRecent() {
+		const res = await api.get('http://localhost:10321/recent/pi', { cache: "no-store" });
+		return await res.json();
+	}
+	const [statData, recentData]: [ApiData, ApiData] = await Promise.all([
+		getContentStat(),
+		getRecent()
+	]);
+	const stat: ContentStat = statData.data;
+	const recent: RecentContent = recentData.data;
+
 	return (
 		<>
 			<div className="md:flex grid grid-cols-1 gap-4">
@@ -17,7 +26,7 @@ export default async function RootLayout({children}: { children: React.ReactNode
 					{children}
 				</div>
 				<div className="md:w-72 w-full">
-					<Sidebar blogData={blogData} />
+					<Sidebar statistics={stat} recent={recent} />
 				</div>
 			</div>
 		</>

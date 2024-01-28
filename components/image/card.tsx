@@ -7,7 +7,7 @@ import {
     Image,
 } from "@nextui-org/react";
 
-export default function ImageCard({ image, onClick }: { image: ImageData, onClick?: () => void }) {
+export default function ImageCard({ image, onClick }: { image: ImagePageView, onClick?: () => void }) {
     return (
         <>
             <Card

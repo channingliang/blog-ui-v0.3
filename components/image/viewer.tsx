@@ -10,15 +10,14 @@ import "yet-another-react-lightbox/plugins/captions.css";
 import { formatTime } from "@/lib/utils";
 import { MyIcon } from "@/components/my-icon";
 import { LuCalendarCheck2, LuPenLine, LuPanelBottomClose, LuPanelBottomOpen, LuX, LuZoomIn, LuZoomOut } from "react-icons/lu";
-import { Divider, Tooltip } from "@nextui-org/react";
 
-const Viewer = ({images}: { images: ImageData[] }) => {
+const Viewer = ({images}: { images: ImagePageView[] }) => {
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const zoomRef = React.useRef(null);
     const showToggle = true;
 
-    const generateCaption = (image: ImageData) => {
+    const generateCaption = (image: ImagePageView) => {
         return (
             <div className={"flex flex-col gap-2"}>
                 <div className={"flex flex-wrap gap-2 justify-between items-center"}>

@@ -40,7 +40,7 @@ export default function AboutPage() {
 						radius={"md"}
 					/>
 					<div className={"flex-grow py-4 px-8 rounded-xl border-2"}>
-						<p>❤️你好，赛博探险家~</p>
+						<p>Hello~很高兴见到你❤️</p>
 						<p className={"text-[2.5rem] font-bold"}>我是 LEON</p>
 						<p className={"text-lg"}>一名普通的学牲、公路车铁驭、超级大吃货、科技追随者、虚拟世界探险家</p>
 					</div>

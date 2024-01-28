@@ -22,7 +22,7 @@ export default async function ImagesPage({ searchParams } : {
 
 	const currentPage = Number(searchParams?.page) || 1;
 	const data: ApiData = await getData(currentPage);
-	const pageData = data.data as PageData & { records: ImageData[] };
+	const pageData = data.data as PageData & { records: ImagePageView[] };
 
 	return (
 		<section>

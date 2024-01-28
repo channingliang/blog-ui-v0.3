@@ -10,7 +10,7 @@ interface InfoCardProps {
 
 const InfoCard: FC<InfoCardProps> = ({ icon, mainText, greyText }) => {
     return (
-        <div className="flex-auto md:flex-none md:col-span-1">
+        <div className="flex flex-auto justify-center md:justify-start md:flex-none md:col-span-1">
             <div className="flex items-center gap-1">
                 <MyIcon icon={icon} />
                 <div className="ml-1 flex flex-col">

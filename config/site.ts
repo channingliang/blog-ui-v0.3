@@ -4,10 +4,10 @@ export const siteConfig = {
     name: "LEONの熬夜空间",
     description: "我（Leon）记录生活的小地方",
     navItems: [
-        {
-            label: "主页",
-            href: "/home",
-        },
+        // {
+        //     label: "主页",
+        //     href: "/home",
+        // },
 		{
 			label: "博文",
 			href: "/posts?page=1",

@@ -22,7 +22,7 @@ export default async function PostsPage({ searchParams } : {
 
 	const currentPage = Number(searchParams?.page) || 1;
 	const data: ApiData = await getData(currentPage);
-	const pageData = data.data as PageData & { records: PostsData[] };
+	const pageData = data.data as PageData & { records: PostPageView[] };
 	return (
 		<section>
 			<div className={"px-8"}>
@@ -31,7 +31,7 @@ export default async function PostsPage({ searchParams } : {
 			</div>
 			<div className={"grid grid-cols-1 gap-4"}>
 				{
-					pageData.records.map((post: PostsData) => (
+					pageData.records.map((post: PostPageView) => (
 						<PostCard key={post.postId} post={post} />
 					))
 				}

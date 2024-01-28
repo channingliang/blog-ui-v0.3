@@ -8,7 +8,7 @@ import ScrollTopBtn from "@/components/post/scroll-top-btn";
 import ScrollEndBtn from "@/components/post/scroll-end-btn";
 import { LuCalendarCheck2, LuPenLine, LuMousePointerClick } from "react-icons/lu";
 
-export default function GuideSide({post}: { post: PostData }) {
+export default function GuideSide({post}: { post: PostDetail }) {
     return (
         <>
             <div className="lg:w-72 w-full">
