@@ -4,6 +4,7 @@ import { formatTime } from "@/lib/utils";
 import { LuCalendarDays, LuMousePointerClick } from "react-icons/lu";
 import { MyIcon } from "@/components/my-icon";
 
+// TODO: change it to post-cards, can use client-side rendering
 export default function PostCard({ post }: { post: PostPageView }) {
 
     return (

@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
-import ImageCard from "@/components/image/card";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/plugins/captions.css";
@@ -11,11 +10,25 @@ import { formatTime } from "@/lib/utils";
 import { MyIcon } from "@/components/my-icon";
 import { LuCalendarCheck2, LuPenLine, LuPanelBottomClose, LuPanelBottomOpen, LuX, LuZoomIn, LuZoomOut } from "react-icons/lu";
 
-const Viewer = ({images}: { images: ImagePageView[] }) => {
+// TODO: go https://yet-another-react-lightbox.com/examples/nextjs and check the example
+interface ViewerProps {
+    images: ImagePageView[];
+    children?: React.ReactNode;
+}
+
+const Viewer = ({ images, renderImageGallery }: {
+    images: ImagePageView[],
+    renderImageGallery: (openLightbox: (index: number) => void) => React.ReactNode
+}) => {
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const zoomRef = React.useRef(null);
     const showToggle = true;
+
+    const openLightbox = (index: number) => {
+        setLightboxOpen(true);
+        setCurrentImageIndex(index);
+    };
 
     const generateCaption = (image: ImagePageView) => {
         return (
@@ -60,26 +73,27 @@ const Viewer = ({images}: { images: ImagePageView[] }) => {
                 open={lightboxOpen}
                 close={() => setLightboxOpen(false)}
                 plugins={[Zoom, Captions]}
-                captions={{ showToggle }}
-                zoom={{ ref: zoomRef }}
+                captions={{showToggle}}
+                zoom={{ref: zoomRef}}
                 render={{
-                    iconClose: () => <MyIcon icon={LuX} size={20} />,
-                    iconZoomIn: () => <MyIcon icon={LuZoomIn} size={20} />,
-                    iconZoomOut: () => <MyIcon icon={LuZoomOut} size={20} />,
-                    iconCaptionsHidden: () => <MyIcon icon={LuPanelBottomOpen} size={20} />,
-                    iconCaptionsVisible: () => <MyIcon icon={LuPanelBottomClose} size={20} />,
+                    iconClose: () => <MyIcon icon={LuX} size={20}/>,
+                    iconZoomIn: () => <MyIcon icon={LuZoomIn} size={20}/>,
+                    iconZoomOut: () => <MyIcon icon={LuZoomOut} size={20}/>,
+                    iconCaptionsHidden: () => <MyIcon icon={LuPanelBottomOpen} size={20}/>,
+                    iconCaptionsVisible: () => <MyIcon icon={LuPanelBottomClose} size={20}/>,
                 }}
             />
-            <div className={"w-full gap-4 columns-1 sm:columns-2 md:columns-3 lg:columns-4 "}>
-                {
-                    images.map((image, index) => (
-                        <ImageCard key={image.imageId} image={image} onClick={() => {
-                            setLightboxOpen(true);
-                            setCurrentImageIndex(index);}}
-                        />
-                    ))
-                }
-            </div>
+            {/*<div className={"w-full gap-4 columns-1 sm:columns-2 md:columns-3 lg:columns-4 "}>*/}
+            {/*    {*/}
+            {/*        images.map((image, index) => (*/}
+            {/*            <ImageCard key={image.imageId} image={image} onClick={() => {*/}
+            {/*                setLightboxOpen(true);*/}
+            {/*                setCurrentImageIndex(index);}}*/}
+            {/*            />*/}
+            {/*        ))*/}
+            {/*    }*/}
+            {/*</div>*/}
+            {renderImageGallery(openLightbox)}
         </section>
     );
 };

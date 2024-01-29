@@ -45,7 +45,7 @@ export default function SideBar({ statistics, recent }: { statistics: ContentSta
             <div className="md:sticky md:top-16 grid grid-cols-1 gap-4 pt-4">
                 <TitledDiv
                     title={"本站数据"}
-                    className={"sticky top-0 flex flex-wrap justify-start md:grid md:grid-cols-2 gap-4 p-4 w-full"}>
+                    className={"sticky top-0 flex flex-wrap justify-start md:grid md:grid-cols-2 gap-2 p-4 w-full"}>
                     <InfoCard
                         icon={LuLibrary}
                         mainText={"记录 " + statistics.postCount + " 篇"}
@@ -70,7 +70,7 @@ export default function SideBar({ statistics, recent }: { statistics: ContentSta
                 </TitledDiv>
                 <TitledDiv
                     title={"近期活动"}
-                    className={"p-2 w-full"}>
+                    className={"p-2 w-full max-h-[60vh]"}>
                     <RecentContent recent={recent} />
                 </TitledDiv>
             </div>
