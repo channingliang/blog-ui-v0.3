@@ -13,7 +13,7 @@ export default async function ImagesPage({ searchParams } : {
 		const res = await api.get('http://localhost:10321/images', {
 			params: {
 				page: page,
-				size: 20
+				size: 5
 			},
 			cache: "no-store"
 		});

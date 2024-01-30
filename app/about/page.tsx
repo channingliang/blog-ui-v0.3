@@ -51,9 +51,9 @@ export default function AboutPage() {
 				<div className={"col-span-4 p-4 leading-10"}>
 					<div className={""}>
 						<LuGamepad2 className={"inline align-middle mr-2"}/>
-						地球模拟器已升到
+						地球ONLINE 已升到
 						<span className={"emphasis"}>{calculateAge()}</span>
-						级，目前仍在尝试找到作弊代码
+						级，目前仍在努力练等
 					</div>
 					<div>
 						<LuGamepad2 className={"inline align-middle mr-2"}/>

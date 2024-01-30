@@ -21,9 +21,12 @@ export default function RecentContent({ recent }: { recent: RecentContent }) {
 
     const isEditedExpanded = selectedKeys.has("edited");
 
+    const allImages = recent.addedImages.concat(recent.editedImages);
+    const editedIndexStart = recent.addedImages.length;
+
     return (
         <Viewer
-            images={recent.editedImages}
+            images={allImages}
             renderImageGallery={(openLightbox) => (
                 <Accordion
                     selectedKeys={selectedKeys}
@@ -136,7 +139,7 @@ export default function RecentContent({ recent }: { recent: RecentContent }) {
                                                 key={image.imageId}
                                                 aria-label={"最近更新图片"}
                                                 onPress={() => {
-                                                    openLightbox(recent.editedImages.indexOf(image));
+                                                    openLightbox(recent.editedImages.indexOf(image) + editedIndexStart);
                                                 }}
                                             >
 

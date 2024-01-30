@@ -49,13 +49,14 @@ const Viewer = ({ images, renderImageGallery }: {
                               {formatTime(image.editTime)}
                           </p>
                         }
-
                     </div>
                 </div>
-
-                <div className={"flex text-clip"}>
-                    {image.content}
-                </div>
+                {
+                    image.content &&
+                    <div className={"flex text-clip"}>
+                        {image.content}
+                    </div>
+                }
             </div>
         );
     }
@@ -83,16 +84,6 @@ const Viewer = ({ images, renderImageGallery }: {
                     iconCaptionsVisible: () => <MyIcon icon={LuPanelBottomClose} size={20}/>,
                 }}
             />
-            {/*<div className={"w-full gap-4 columns-1 sm:columns-2 md:columns-3 lg:columns-4 "}>*/}
-            {/*    {*/}
-            {/*        images.map((image, index) => (*/}
-            {/*            <ImageCard key={image.imageId} image={image} onClick={() => {*/}
-            {/*                setLightboxOpen(true);*/}
-            {/*                setCurrentImageIndex(index);}}*/}
-            {/*            />*/}
-            {/*        ))*/}
-            {/*    }*/}
-            {/*</div>*/}
             {renderImageGallery(openLightbox)}
         </section>
     );
