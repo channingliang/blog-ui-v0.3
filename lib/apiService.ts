@@ -10,8 +10,10 @@ interface ApiConfig {
 }
 
 export class ApiService {
-    private async request(method: HttpMethod, url: string, config?: ApiConfig): Promise<Response> {
-        let endpoint = url;
+    private baseURL = process.env.NEXT_PUBLIC_API_URL;
+    private async request(method: HttpMethod, path: string, config?: ApiConfig): Promise<Response> {
+        let endpoint = `${this.baseURL}/${path}`;
+        console.log('endpoint', endpoint)
         const headers = new Headers();
 
         headers.append('Content-Type', 'application/json');

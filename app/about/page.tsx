@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Metadata } from 'next';
-import { Avatar, Badge, Card, CardHeader, CardFooter, Divider, Image, Link, User, Chip } from "@nextui-org/react";
+import { Avatar, Card, Image, Link, User, Chip } from "@nextui-org/react";
 import dynamic from "next/dynamic";
 import { calculateAge } from "@/lib/utils";
 import HackedText from "@/components/about/hello";
@@ -28,7 +28,7 @@ export default function AboutPage() {
 		<>
 			<div className={"px-8 pb-4"}>
 				<h1 className={"section-title"}>关于我の情报</h1>
-				<h2 className={"section-subtitle"}>随便写点简介吧</h2>
+				<h2 className={"section-subtitle"}>只是一个普通的玩家而已</h2>
 			</div>
 			<div className={"intro"}>
 				<div className={"col-span-8 sm:flex items-center gap-8 border-none"}>
@@ -92,16 +92,16 @@ export default function AboutPage() {
 						className="z-0 w-full h-full object-cover rounded-none"
 						src="/assets/cs-cover.jpg"
 					/>
-					<div className="absolute top-0 left-0 p-4 w-full h-full bg-background/20">
+					<div className="absolute top-0 left-0 p-4 w-full h-full bg-black/10">
 						<div className="flex items-center gap-2">
 							<MyIcon icon={MdGamepad} size={20}/>
 							<p className="text-xl font-bold">完成度最高的任务</p>
 						</div>
 					</div>
 				</div>
-				<div className={"col-span-3 h-[150px] sm:min-h-[150px]"}>
+				<div className={"col-span-3 h-[150px] sm:min-h-[150px] overflow-hidden"}>
 					<Card
-						className="w-full h-full"
+						className="w-full h-full rounded-none text-white"
 						as={Link}
 						isExternal
 						href={"https://steamcommunity.com/id/109904/"}
@@ -112,7 +112,7 @@ export default function AboutPage() {
 							className="z-0 w-full h-full object-cover rounded-none"
 							src="/assets/steam.jpg"
 						/>
-						<div className="absolute inset-0 bg-background/20 p-4 flex flex-col justify-between h-full">
+						<div className="absolute inset-0 bg-black/10 p-4 flex flex-col justify-between h-full">
 							<User
 								className={"flex justify-start"}
 								name={(
@@ -120,10 +120,10 @@ export default function AboutPage() {
 								)}
 								description={(
 									<div className="flex ml-2 gap-2 h-5 items-center text-small text-foreground">
-										<MyIcon icon={FaSteam} className={"text-foreground"} size={22}/>
+										<MyIcon icon={FaSteam} className={"text-white"} size={22}/>
 										<div>
 									<span
-										className={"flex justify-center items-center text-tiny" +
+										className={"flex justify-center items-center text-tiny text-white" +
 											" rounded-full w-6 h-6 border-2 border-[#467a3c]"}
 									>
 										40

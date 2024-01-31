@@ -14,10 +14,9 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 	const api = new ApiService();
 
 	async function getData() {
-		// const res = await api.get('http://localhost:10321/posts/' + postId,
-		// 	{ next: { revalidate: 86400 } });
-		const res = await api.get('http://localhost:10321/posts/' + postId,
-			{ cache: "no-store" });
+		const res = await api.get('posts' + postId, {
+			next: { revalidate: 60 }
+		});
 		return await res.json();
 	}
 

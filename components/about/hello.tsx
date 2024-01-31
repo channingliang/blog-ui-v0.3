@@ -48,7 +48,7 @@ const HackedText = ({content} : {content: string}) => {
 
     return (
         <div
-            className={"text-background text-[12vw] md:text-[6rem] lg:text-[8rem] leading-tight font-black"}
+            className={"text-background text-[12vw] md:text-[6rem] lg:text-[8rem] leading-tight font-black select-none"}
             ref={titleRef}
             data-value={content}
         >

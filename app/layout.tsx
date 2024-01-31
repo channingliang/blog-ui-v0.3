@@ -4,11 +4,9 @@ import { siteConfig } from "@/config/site";
 import { Providers } from "./providers";
 import { harmony } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
-import { Link } from "@nextui-org/react";
 import React from "react";
 import clsx from "clsx";
 import NextTopLoader from "nextjs-toploader";
-import { IconContext } from "react-icons";
 
 export const metadata: Metadata = {
 	title: {

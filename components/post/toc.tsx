@@ -1,6 +1,6 @@
 'use client';
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "@nextui-org/react";
 
 interface Heading {
@@ -88,7 +88,28 @@ const scrollToHeading = (id: string, action?: () => void) => {
 };
 
 const Toc = ({ content, action }: { content: string, action?: () => void }) => {
+    // const [activeId, setActiveId] = useState<string | null>(null);
     const headings = extractHeadings(content);
+
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         let lastHeadingId = null;
+    //         headings.forEach(heading => {
+    //             const element = document.getElementById(heading.id);
+    //             if (element) {
+    //                 const rect = element.getBoundingClientRect();
+    //                 if (rect.top <= 0) {
+    //                     lastHeadingId = heading.id;
+    //                 }
+    //             }
+    //         });
+    //         setActiveId(lastHeadingId);
+    //     };
+    //
+    //     window.addEventListener('scroll', handleScroll, { passive: true });
+    //     return () => window.removeEventListener('scroll', handleScroll);
+    // }, [headings]);
+    // Use ${heading.id === activeId ? 'highlight' : ''} in style class
 
     if (headings.length === 0) return <p className={"text-small text-white/50"}>-无目录结构-</p>;
 
@@ -98,12 +119,14 @@ const Toc = ({ content, action }: { content: string, action?: () => void }) => {
         if (action) action();
     };
 
+
+
     const renderListItems = (headings: Heading[]) => {
         return headings.map((heading, index) => (
             <li key={'h4' + index} className={"my-2"}>
                 <Link
                     href={"#"}
-                    className={"text-large font-bold text-foreground hover:text-primary"}
+                    className={"text-md font-bold text-foreground hover:text-primary"}
                     border={"foreground"}
                     underline="hover"
                     onClick={(e) => handleLinkClick(e, heading.id)}
@@ -116,7 +139,7 @@ const Toc = ({ content, action }: { content: string, action?: () => void }) => {
                             <li key={'h4' + subIndex} className={"text-small ml-6 my-2"}>
                                 <Link
                                     href={`#`}
-                                    className={"text-foreground"}
+                                    className={"text-sm text-foreground"}
                                     border={"foreground"}
                                     underline="hover"
                                     onClick={
@@ -131,7 +154,7 @@ const Toc = ({ content, action }: { content: string, action?: () => void }) => {
                                             <li key={'h4' + subSubIndex} className={"text-small ml-6 my-2"}>
                                                 <Link
                                                     href={`#`}
-                                                    className={"text-foreground"}
+                                                    className={"text-sm text-foreground"}
                                                     border={"foreground"}
                                                     underline="hover"
                                                     onClick={

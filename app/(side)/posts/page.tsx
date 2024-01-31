@@ -10,12 +10,12 @@ export default async function PostsPage({ searchParams } : {
 }) {
 	const api = new ApiService();
 	async function getData(page: number) {
-		const res = await api.get('http://localhost:10321/posts', {
+		const res = await api.get('posts', {
 			params: {
 				page: page,
 				size: 5
 			},
-			next: { revalidate: 3600 }
+			next: { revalidate: 60 }
 		});
 		return await res.json();
 	}

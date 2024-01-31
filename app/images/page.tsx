@@ -10,12 +10,12 @@ export default async function ImagesPage({ searchParams } : {
 }) {
 	const api = new ApiService();
 	async function getData(page: number) {
-		const res = await api.get('http://localhost:10321/images', {
+		const res = await api.get('images', {
 			params: {
 				page: page,
 				size: 5
 			},
-			cache: "no-store"
+			next: { revalidate: 60 },
 		});
 		return await res.json();
 	}
