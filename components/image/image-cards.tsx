@@ -3,30 +3,9 @@
 import Viewer from "@/components/viewer";
 import React from "react";
 import { Card, CardFooter, Image } from "@nextui-org/react";
-import Lightbox from "yet-another-react-lightbox";
-import slides from "@/lib/slides";
-import NextJsImage from "@/components/NextJsImage";
 
 export default function ImageCards({ images }: { images: ImagePageView[] }) {
-    const [open, setOpen] = React.useState(false);
-
     return (
-        // <>
-        //     <button type="button" onClick={() => setOpen(true)}>
-        //         Open Lightbox
-        //     </button>
-        //
-        //
-        //     <Lightbox
-        //         open={open}
-        //         close={() => setOpen(false)}
-        //         slides={slides}
-        //         render={{slide: NextJsImage}}
-        //     />
-        //
-        // </>
-
-
         <Viewer
             images={images}
             renderImageGallery={(openLightbox) => (

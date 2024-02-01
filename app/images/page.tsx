@@ -13,7 +13,7 @@ export default async function ImagesPage({ searchParams } : {
 		const res = await api.get('images', {
 			params: {
 				page: page,
-				size: 5
+				size: 20
 			},
 			next: { revalidate: 60 },
 		});

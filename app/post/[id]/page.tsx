@@ -14,7 +14,7 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 	const api = new ApiService();
 
 	async function getData() {
-		const res = await api.get('posts' + postId, {
+		const res = await api.get('posts/' + postId, {
 			next: { revalidate: 60 }
 		});
 		return await res.json();

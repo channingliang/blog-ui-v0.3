@@ -13,8 +13,9 @@ export default async function PostsPage({ searchParams } : {
 		const res = await api.get('posts', {
 			params: {
 				page: page,
-				size: 5
+				size: 10
 			},
+			cache: "no-cache",
 			next: { revalidate: 60 }
 		});
 		return await res.json();
