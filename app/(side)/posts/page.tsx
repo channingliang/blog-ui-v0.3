@@ -15,7 +15,6 @@ export default async function PostsPage({ searchParams } : {
 				page: page,
 				size: 10
 			},
-			cache: "no-cache",
 			next: { revalidate: 60 }
 		});
 		return await res.json();
