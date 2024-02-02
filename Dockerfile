@@ -1,5 +1,5 @@
 # 使用官方 Node.js 18 版本的轻量级 Alpine Linux 镜像作为基础镜像
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
 
 # 安装可能需要的系统依赖
 RUN apk add --no-cache libc6-compat
