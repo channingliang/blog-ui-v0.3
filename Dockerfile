@@ -1,69 +1,59 @@
+# 使用官方 Node.js 18 版本的轻量级 Alpine Linux 镜像作为基础镜像
 FROM node:18-alpine AS base
 
-# Install dependencies only when needed
-FROM base AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+# 安装可能需要的系统依赖
 RUN apk add --no-cache libc6-compat
+
+# 设置工作目录
 WORKDIR /app
 
-# Install dependencies based on the preferred package manager
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-RUN \
-  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-  elif [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+# 阶段 1: 依赖安装
+FROM base AS deps
+# 复制 package.json 和 package-lock.json 文件
+COPY package.json package-lock.json* ./
 
+# 安装项目依赖
+RUN npm ci
 
-# Rebuild the source code only when needed
+# 阶段 2: 构建应用
 FROM base AS builder
 WORKDIR /app
+
+# 从 deps 阶段复制 node_modules
 COPY --from=deps /app/node_modules ./node_modules
+# 复制所有项目文件到工作目录
 COPY . .
 
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry during the build.
-# ENV NEXT_TELEMETRY_DISABLED 1
+# 设置环境变量以禁用 Next.js 的匿名遥测功能
+ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN \
-  if [ -f yarn.lock ]; then yarn run build; \
-  elif [ -f package-lock.json ]; then npm run build; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+# 构建应用
+RUN npm run build
 
-# Production image, copy all the files and run next
+# 阶段 3: 运行应用
 FROM base AS runner
 WORKDIR /app
 
+# 设置环境变量，定义为生产环境
 ENV NODE_ENV production
-# Uncomment the following line in case you want to disable telemetry during runtime.
-# ENV NEXT_TELEMETRY_DISABLED 1
+# 禁用 Next.js 的匿名遥测功能
+ENV NEXT_TELEMETRY_DISABLED 1
 
+# 创建并设置合适的用户和用户组
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
+# 从构建阶段复制构建好的文件
 COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next ./next
 
-# Set the correct permission for prerender cache
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
-
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-USER nextjs
-
+# 设置运行时的端口和主机名
 EXPOSE 10322
-
 ENV PORT 10322
-# set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
 
-# server.js is created by next build from the standalone output
-# https://nextjs.org/docs/pages/api-reference/next-config-js/output
+# 切换到非 root 用户运行应用
+USER nextjs
+
+# 指定容器启动时执行的命令
 CMD ["node", "server.js"]
