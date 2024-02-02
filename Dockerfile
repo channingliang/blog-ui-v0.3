@@ -12,8 +12,8 @@ FROM base AS deps
 # 复制 package.json 和 package-lock.json 文件
 COPY package.json package-lock.json* ./
 
-# 安装项目依赖
-RUN npm ci
+# 安装依赖时使用阿里云镜像源
+RUN npm ci --registry=https://registry.npmmirror.com
 
 # 阶段 2: 构建应用
 FROM base AS builder
