@@ -137,7 +137,6 @@ const Toc = ({ content, action }: { content: string, action?: () => void }) => {
                             <li key={'h4' + subIndex} className={"text-small ml-6 my-2"}>
                                 <Link
                                     className={"text-sm text-foreground cursor-pointer"}
-                                    border={"foreground"}
                                     underline="hover"
                                     onClick={
                                         (e) => handleLinkClick(e, subHeading.id)
@@ -150,9 +149,7 @@ const Toc = ({ content, action }: { content: string, action?: () => void }) => {
                                         {subHeading.sub.map((subSubHeading, subSubIndex) => (
                                             <li key={'h4' + subSubIndex} className={"text-small ml-6 my-2"}>
                                                 <Link
-
                                                     className={"text-sm text-foreground cursor-pointer"}
-                                                    border={"foreground"}
                                                     underline="hover"
                                                     onClick={
                                                         (e) =>
