@@ -125,9 +125,7 @@ const Toc = ({ content, action }: { content: string, action?: () => void }) => {
         return headings.map((heading, index) => (
             <li key={'h4' + index} className={"my-2"}>
                 <Link
-                    href={"#"}
-                    className={"text-md font-bold text-foreground hover:text-primary"}
-                    border={"foreground"}
+                    className={"text-md font-bold text-foreground hover:text-primary cursor-pointer"}
                     underline="hover"
                     onClick={(e) => handleLinkClick(e, heading.id)}
                 >
@@ -138,8 +136,7 @@ const Toc = ({ content, action }: { content: string, action?: () => void }) => {
                         {heading.sub.map((subHeading, subIndex) => (
                             <li key={'h4' + subIndex} className={"text-small ml-6 my-2"}>
                                 <Link
-                                    href={`#`}
-                                    className={"text-sm text-foreground"}
+                                    className={"text-sm text-foreground cursor-pointer"}
                                     border={"foreground"}
                                     underline="hover"
                                     onClick={
@@ -153,8 +150,8 @@ const Toc = ({ content, action }: { content: string, action?: () => void }) => {
                                         {subHeading.sub.map((subSubHeading, subSubIndex) => (
                                             <li key={'h4' + subSubIndex} className={"text-small ml-6 my-2"}>
                                                 <Link
-                                                    href={`#`}
-                                                    className={"text-sm text-foreground"}
+
+                                                    className={"text-sm text-foreground cursor-pointer"}
                                                     border={"foreground"}
                                                     underline="hover"
                                                     onClick={
