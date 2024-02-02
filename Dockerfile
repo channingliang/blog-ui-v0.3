@@ -44,16 +44,15 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 # 从构建阶段复制构建好的文件
-COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next ./next
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
 
 # 设置运行时的端口和主机名
-EXPOSE 10322
-ENV PORT 10322
+EXPOSE 3000
+ENV PORT 3000
 ENV HOSTNAME "0.0.0.0"
-
-# 切换到非 root 用户运行应用
-USER nextjs
 
 # 指定容器启动时执行的命令
 CMD ["node", "server.js"]
