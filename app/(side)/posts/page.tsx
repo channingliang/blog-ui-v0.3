@@ -13,7 +13,7 @@ export default async function PostsPage({ searchParams } : {
 		const res = await api.get('posts', {
 			params: {
 				page: page,
-				size: 1
+				size: 10
 			},
 			next: { revalidate: 43200 }
 		});
