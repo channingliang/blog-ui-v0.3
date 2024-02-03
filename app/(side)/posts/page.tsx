@@ -1,6 +1,6 @@
 import { ApiService } from "@/lib/apiService";
 import IPagination from "@/components/pagination";
-import PostCard from "@/components/post/card";
+import PostCards from "@/components/post/post-cards";
 import React from "react";
 
 export default async function PostsPage({ searchParams } : {
@@ -13,9 +13,9 @@ export default async function PostsPage({ searchParams } : {
 		const res = await api.get('posts', {
 			params: {
 				page: page,
-				size: 10
+				size: 1
 			},
-			next: { revalidate: 60 }
+			next: { revalidate: 43200 }
 		});
 		return await res.json();
 	}
@@ -30,11 +30,7 @@ export default async function PostsPage({ searchParams } : {
 				<h2 className={"section-subtitle"}>写文章什么的好麻烦～但缺了这个还叫博客吗？虽然本来只准备做个相册的哈哈~</h2>
 			</div>
 			<div className={"grid grid-cols-1 gap-4"}>
-				{
-					pageData.records.map((post: PostPageView) => (
-						<PostCard key={post.postId} post={post} />
-					))
-				}
+				<PostCards posts={pageData.records} />
 			</div>
 			<div className={"w-full mt-4 flex justify-center"}>
 				<IPagination path={"posts"} totalPages={pageData.pages}></IPagination>

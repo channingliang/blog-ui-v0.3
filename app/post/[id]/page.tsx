@@ -13,19 +13,21 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 	const postId = params.id;
 	const api = new ApiService();
 
-	async function getData() {
+	async function getPostData() {
 		const res = await api.get('posts/' + postId, {
-			next: { revalidate: 60 }
+			next: { revalidate: 86400 }
 		});
 		return await res.json();
 	}
 
-	const data: ApiData = await getData();
-	const postData: PostDetail = data.data;
 
+
+	const postData = await getPostData();
+
+	const post: PostDetail = postData.data;
 	const breadcrumbItems: BreadcrumbItemProps[] = [
 		{ href: "/posts", children: "博文" },
-		{ href: "/posts/" + postId, children: postData.title }
+		{ href: "/posts/" + postId, children: post.title }
 	];
 
 	return (
@@ -41,7 +43,7 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 					<Image
 						alt="Post cover"
 						className="z-0 w-full h-full object-cover"
-						src={postData.coverUrl ? postData.coverUrl : "https://pic.stayuplate.icu/ui/default-bg.jpg"}
+						src={post.coverUrl ? post.coverUrl : "https://pic.stayuplate.icu/ui/default-bg.jpg"}
 					/>
 					<CardFooter
 						className="absolute bg-background/20 bottom-0 z-10
@@ -49,28 +51,28 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 					>
 						<div
 							className="w-full py-2 flex items-center justify-center text-2xl text-white font-bold uppercase">
-							{postData.title}
+							{post.title}
 						</div>
 					</CardFooter>
 				</Card>
 				<div className={"flex flex-col gap-2 lg:hidden border-2 rounded-xl my-4 p-4"}>
 					<div className={"text-lg flex items-center"}>
-						<MyIcon icon={LuMousePointerClick} /><span className={"text-xs"}>{postData.viewCount}</span>
-						<span className={"ml-3"}>{postData.subtitle}</span>
+						<MyIcon icon={LuMousePointerClick} /><span className={"text-xs"}>{post.viewCount}</span>
+						<span className={"ml-3"}>{post.subtitle}</span>
 					</div>
 					<div className={"flex flex-wrap gap-2 sm:gap-4"}>
 						<span className={"flex items-center text-sm text-foreground/50"}>
-							<MyIcon icon={LuCalendarCheck2} className={"mr-1"} />{formatTimeZH(postData.createTime)}
+							<MyIcon icon={LuCalendarCheck2} className={"mr-1"} />{formatTimeZH(post.createTime)}
 						</span>
-						{postData.editTime && <span
+						{post.editTime && <span
 							className={"flex items-center text-sm text-foreground/50"}>
-							<MyIcon icon={LuPenLine} className={"mr-1"} /> {formatTimeZH(postData.editTime)}
+							<MyIcon icon={LuPenLine} className={"mr-1"} /> {formatTimeZH(post.editTime)}
 						</span>
 						}
 					</div>
 					<div className={"flex flex-wrap gap-1"}>
-						{postData.tags && postData.tags.length > 0 ? (
-							postData.tags.map((tag, index) => (
+						{post.tags && post.tags.length > 0 ? (
+							post.tags.map((tag, index) => (
 								<Chip
 									className={"rounded-xl text-[.8rem]"}
 									key={index}
@@ -86,30 +88,30 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 					</div>
 				</div>
 				<div className={"my-4"}>
-					<Markdown content={postData.content}/>
+					<Markdown content={post.content}/>
 				</div>
 				<div id={"postNav"} className={"border-2 rounded-xl p-4 flex flex-wrap items-center justify-between gap-2"}>
-					{postData.prev ?
+					{post.prev ?
 						<div>
 							<span className={"text-small"}>上一篇：</span>
 							<Link underline={"hover"}
-								  href={"/post/" + postData.prev.postId}>{postData.prev.title}</Link>
+								  href={"/post/" + post.prev.postId}>{post.prev.title}</Link>
 						</div> :
 						<p className={"text-small"}>没有更多了~</p>}
-					{postData.next ?
+					{post.next ?
 						<div>
 							<span className={"text-small"}>下一篇：</span>
 							<Link underline={"hover"}
-								  href={"/post/" + postData.next.postId}>{postData.next.title}</Link>
+								  href={"/post/" + post.next.postId}>{post.next.title}</Link>
 						</div>
 						: <p className={"text-small"}>没有更多了~</p>}
 				</div>
 			</div>
 			<div className="lg:w-72 w-full lg:block hidden">
-				<GuideSide post={postData}/>
+				<GuideSide post={post}/>
 			</div>
 			<div className={"lg:hidden fixed bottom-4 right-2 "}>
-				<GuideFixed content={postData.content}/>
+				<GuideFixed content={post.content}/>
 			</div>
 		</section>
 	);

@@ -25,7 +25,7 @@ const Viewer = ({ images, renderImageGallery }: {
     const zoomRef = React.useRef(null);
     const showToggle = true;
 
-    if (images === null || images.length === 0) return;
+    if (images === null || images.length === 0) return <p>暂时没有图片</p>;
     images = images.filter((image) => image !== null && image !== undefined);
 
     const openLightbox = (index: number) => {

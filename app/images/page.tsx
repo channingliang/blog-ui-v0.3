@@ -15,7 +15,7 @@ export default async function ImagesPage({ searchParams } : {
 				page: page,
 				size: 20
 			},
-			next: { revalidate: 60 },
+			next: { revalidate: 43200 },
 		});
 		return await res.json();
 	}

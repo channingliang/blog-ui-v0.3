@@ -6,13 +6,13 @@ export default async function RootLayout({children}: { children: React.ReactNode
 	const api = new ApiService();
 	async function getContentStat() {
 		const res = await api.get('stat/content', {
-			next: { revalidate: 60 }
+			next: { revalidate: 43200 }
 		});
 		return await res.json();
 	}
 	async function getRecent() {
 		const res = await api.get('recent/pi', {
-			next: { revalidate: 60 }
+			next: { revalidate: 43200 }
 		});
 		return await res.json();
 	}
