@@ -25,6 +25,9 @@ const Viewer = ({ images, renderImageGallery }: {
     const zoomRef = React.useRef(null);
     const showToggle = true;
 
+    if (images === null || images.length === 0) return;
+    images = images.filter((image) => image !== null && image !== undefined);
+
     const openLightbox = (index: number) => {
         setLightboxOpen(true);
         setCurrentImageIndex(index);

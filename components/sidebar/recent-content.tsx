@@ -55,8 +55,7 @@ export default function RecentContent({ recent }: { recent: RecentContent }) {
                               </ListboxSection>
                             }
                             {
-                                recent.addedImages &&
-                              <ListboxSection title="图片">
+                                recent.addedImages && <ListboxSection title="图片">
                                   {
                                       recent.addedImages.map((image) => (
                                           <ListboxItem

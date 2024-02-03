@@ -36,7 +36,7 @@ export default function AboutPage() {
 						className={"mb-8 sm:mb-0 mx-auto flex-shrink-0 w-20 h-20"}
 						isBordered
 						color={"primary"}
-						src="/assets/avatar.jpg"
+						src="https://pic.stayuplate.icu/ui/avatar.jpg"
 						radius={"md"}
 					/>
 					<div className={"flex-grow py-4 px-8 rounded-xl border-2"}>
@@ -90,7 +90,7 @@ export default function AboutPage() {
 						removeWrapper
 						alt="cs2"
 						className="z-0 w-full h-full object-cover rounded-none"
-						src="/assets/cs-cover.jpg"
+						src="https://pic.stayuplate.icu/ui/cs-cover.jpg"
 					/>
 					<div className="absolute top-0 left-0 p-4 w-full h-full bg-black/10">
 						<div className="flex items-center gap-2">
@@ -110,7 +110,7 @@ export default function AboutPage() {
 							removeWrapper
 							alt="steam"
 							className="z-0 w-full h-full object-cover rounded-none"
-							src="/assets/steam.jpg"
+							src="https://pic.stayuplate.icu/ui/steam.jpg"
 						/>
 						<div className="absolute inset-0 bg-black/10 p-4 flex flex-col justify-between h-full">
 							<User
@@ -133,7 +133,7 @@ export default function AboutPage() {
 								)}
 								avatarProps={{
 									className: "h-20 w-20 bg-transparent",
-									src: "/assets/steam-avatar.gif",
+									src: "https://pic.stayuplate.icu/ui/steam-avatar.gif",
 									radius: "none",
 								}}
 							/>
@@ -176,7 +176,7 @@ export default function AboutPage() {
 						removeWrapper
 						alt="esfp"
 						className="z-0 w-full h-full object-cover rounded-none"
-						src="/assets/ESFP.jpg"
+						src="https://pic.stayuplate.icu/ui/esfp.jpg"
 					/>
 					<div className="absolute top-0 left-0 p-4 w-full h-full bg-background/60 flex gap-4 overflow-auto">
 						<div className={"w-36 sm:w-44 flex flex-col justify-between"}>

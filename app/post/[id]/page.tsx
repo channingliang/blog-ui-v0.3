@@ -41,7 +41,7 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 					<Image
 						alt="Post cover"
 						className="z-0 w-full h-full object-cover"
-						src={postData.coverUrl ? postData.coverUrl : "/assets/default-bg.jpg"}
+						src={postData.coverUrl ? postData.coverUrl : "https://pic.stayuplate.icu/ui/default-bg.jpg"}
 					/>
 					<CardFooter
 						className="absolute bg-background/20 bottom-0 z-10

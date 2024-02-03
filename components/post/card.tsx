@@ -22,7 +22,7 @@ export default function PostCard({ post }: { post: PostPageView }) {
             <Image
                 alt="Post cover"
                 className="z-0 w-full h-full object-cover rounded-none"
-                src={post.coverUrl ? post.coverUrl : "/assets/default-bg.jpg"}
+                src={post.coverUrl ? post.coverUrl : "https://pic.stayuplate.icu/ui/default-bg.jpg"}
             />
             {/*<div className="absolute inset-0 bg-black/30"></div>*/}
             <CardFooter

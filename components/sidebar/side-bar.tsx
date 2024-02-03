@@ -20,7 +20,7 @@ export default function SideBar({ statistics, recent }: { statistics: ContentSta
                         as={Link}
                         radius={"sm"}
                         color={"primary"}
-                        src="/assets/avatar.jpg"
+                        src="https://pic.stayuplate.icu/ui/avatar.jpg"
                         href="/about"/>
                     <div className="title-box p-4 w-full md:w-auto">
                         <TypedText
