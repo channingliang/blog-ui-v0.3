@@ -42,7 +42,7 @@ export default function AboutPage() {
 					<div className={"flex-grow py-4 px-8 rounded-xl border-2"}>
 						<p>Hello~很高兴见到你❤️</p>
 						<p className={"text-[2.5rem] font-bold"}>我是 LEON</p>
-						<p className={"text-lg"}>一名普通的学牲、公路车铁驭、超级大吃货、科技追随者、虚拟世界探险家</p>
+						<p className={"text-lg"}>一名普通的学牲、普通的玩家、FPS糕玩、公路车铁驭、超级大吃货</p>
 					</div>
 				</div>
 				<div className={"col-span-8 py-4 text-center bg-foreground overflow-hidden"}>
@@ -51,7 +51,7 @@ export default function AboutPage() {
 				<div className={"col-span-4 p-4 leading-10"}>
 					<div className={""}>
 						<LuGamepad2 className={"inline align-middle mr-2"}/>
-						地球ONLINE 已升到
+						“地球ONLINE” 已升到
 						<span className={"emphasis"}>{calculateAge()}</span>
 						级，目前仍在努力练等
 					</div>
@@ -63,29 +63,29 @@ export default function AboutPage() {
 					</div>
 					<div>
 						<LuGamepad2 className={"inline align-middle mr-2"}/>
-						正在推进<span className={"emphasis"}>爱丁堡大学</span>高级任务
+						正在推进<span className={"emphasis"}>爱丁堡大学</span>高级任务，奖励未知
 					</div>
 					<div>
 						<LuGamepad2 className={"inline align-middle mr-2"}/>
-						预期解锁<span className={"sub-emphasis"}>“全栈工程师”</span>成就
+						正在尝试解锁<span className={"sub-emphasis"}>“全栈工程师”</span>成就
 					</div>
 					<div>
 						<LuGamepad2 className={"inline align-middle mr-2"}/>
-						永久技能加点较为平均，看来需要爆肝了...
+						永久技能加点较为平均，这种BUILD究竟是好是坏呢...
 					</div>
 				</div>
-				<div className={"col-span-4 relative overflow-hidden h-[250px] sm:min-h-[250px]"}>
+				<div className={"col-span-4 relative overflow-hidden h-[300px] sm:min-h-[250px]"}>
 					<Map latitude={55.94533} longitude={-3.18711}/>
 					<div className="absolute bottom-0 left-0 z-10 flex items-center
 					 w-full p-4 bg-foreground/70">
-						<span className={"text-lg text-background flex flex-wrap items-center gap-2"}>
+						<span className={"text-medium md:text-lg text-background flex flex-wrap items-center md:gap-2"}>
 							<MyIcon icon={LuMap} size={20}/>
 							正在探索
-							<span className={"text-xl font-bold"}> Edinburgh, United Kingdom</span>
+							<span className={"text-lg md:text-xl font-bold"}> Edinburgh, United Kingdom</span>
 						</span>
 					</div>
 				</div>
-				<div className="col-span-5 relative overflow-hidden">
+				<div className="col-span-5 relative overflow-hidden h-[150px] sm:min-h-[150px]">
 					<Image
 						removeWrapper
 						alt="cs2"
@@ -158,7 +158,7 @@ export default function AboutPage() {
 					{
 						skills.map((skill, index) => (
 							<Chip
-								className={"py-4"}
+								className={`py-4 ${skill.border}`}
 								style={{ borderColor: skill.color }}
 								key={index}
 								endContent={<MyIcon icon={skill.icon} color={skill.color} size={24}/>}
@@ -190,7 +190,7 @@ export default function AboutPage() {
 							<p className={"text-[#E4AE3A] font-black text-4xl"}>ESFP-A</p>
 							<p className="text-[#E4AE3A] text-3xl font-bold">表演者</p>
 							<p className="text-md my-4">“表演者精力充沛、热情，总是心血来潮--有他们在身边，生活永远不会无聊”</p>
-							<p className="text-[0.6rem]">我怎么会是ESFP呢？<br/>奈何测了五遍都是这个😓</p>
+							<p className="text-[0.6rem]">怎么会是ESFP呢？<br/>测了五遍都是这个😓</p>
 						</div>
 						<div className={"flex-1"}>
 							<Personality/>

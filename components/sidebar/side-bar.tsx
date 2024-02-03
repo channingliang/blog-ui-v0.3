@@ -14,14 +14,15 @@ export default function SideBar({ statistics, recent }: { statistics: ContentSta
             <div className="grid grid-cols-1 gap-4">
                 <div className="h-12 flex items-center">
                     <Avatar
-                        className={"ml-1 mr-5"}
+                        className={"ml-1 mr-4 w-10 h-10 min-w-10 min-h-10"}
                         isBordered
                         isFocusable
                         as={Link}
                         radius={"sm"}
                         color={"primary"}
                         src="https://pic.stayuplate.icu/ui/avatar.jpg"
-                        href="/about"/>
+                        href="/about"
+                    />
                     <div className="title-box p-4 w-full md:w-auto">
                         <TypedText
                             strings={["Hi~我是Leon", "精神状态良好", "坚持早睡早起", "绝对不会熬夜"]}
