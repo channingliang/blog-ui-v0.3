@@ -17,7 +17,8 @@ export function ThemeSwitch() {
 		if (mounted) {
 			const iconLink = document.querySelector("link[rel*='icon']") as HTMLLinkElement;
 			if (iconLink) {
-				iconLink.href = theme === "dark" ? "/icon-dark.ico" : "/icon-light.ico";
+				iconLink.href = theme === "dark" ?
+					"https://pic.stayuplate.icu/ui/icon-dark.ico" : "https://pic.stayuplate.icu/ui/icon-light.ico";
 			}
 		}
 	}, [theme, mounted]);
@@ -38,4 +39,4 @@ export function ThemeSwitch() {
 			</Button>
 		</div>
 	);
-};
+}

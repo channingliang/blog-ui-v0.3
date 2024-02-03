@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 	},
 	description: siteConfig.description,
 	icons: {
-		icon: "/icon-dark.ico",
+		icon: "https://pic.stayuplate.icu/ui/icon-dark.ico",
 	},
 };
 
