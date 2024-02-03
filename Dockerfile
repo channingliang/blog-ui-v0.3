@@ -50,8 +50,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 USER nextjs
 
 # 设置运行时的端口和主机名
-EXPOSE 3000
-ENV PORT 3000
+EXPOSE 10322
+ENV PORT 10322
 ENV HOSTNAME "0.0.0.0"
 
 # 指定容器启动时执行的命令
