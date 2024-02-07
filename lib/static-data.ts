@@ -41,7 +41,6 @@ const skills = [
     {
         name: "Next",
         icon: SiNextdotjs,
-        color: "#FFFFFF",
     },
     {
         name: "Tailwind CSS",

@@ -158,8 +158,8 @@ export default function AboutPage() {
 					{
 						skills.map((skill, index) => (
 							<Chip
-								className={"py-4"}
-								style={{ borderColor: skill.color }}
+								className={"py-4 border-foreground"}
+								style={{borderColor: skill.color}}
 								key={index}
 								endContent={<MyIcon icon={skill.icon} color={skill.color} size={24}/>}
 								variant="bordered"
